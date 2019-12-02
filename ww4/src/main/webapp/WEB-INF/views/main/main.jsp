@@ -55,22 +55,21 @@
 
 	</head>
 	<body>
-		
 	
 	<jsp:include page="../include/menu.jsp"/>
 	<jsp:include page="../include/header2.jsp"/>
 
 	<!-- END .header -->
-	
+	<c:choose>
+	<c:when test="${empty email}">
 	
 	<div id="fh5co-main">
-		<div class="container">
+	<div class="container">
+	<div class="row">
+    <div id="fh5co-board" data-columns>
 
-			<div class="row">
-
-        <div id="fh5co-board" data-columns>
-
-        	<div class="item">
+	
+		<div class="item">
         		<div class="animate-box">
 	        		<a href="/resources/hydrogen/images/img_1.jpg" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
 	        		<img src="/resources/hydrogen/images/img_1.jpg" alt="Free HTML5 Bootstrap template"></a>
@@ -146,14 +145,76 @@
 	        		<img src="/resources/hydrogen/images/img_10.jpg" alt="Free HTML5 Bootstrap template"></a>
 	        		<div class="fh5co-desc">Incidunt, eaque et. Et odio excepturi, eveniet facilis explicabo assumenda.</div>
         		</div>
-        	</div>   	
-        </div>
-        </div>
-       </div>
+        	</div>  
+        	
+       
+    </div>
+    </div>
+    </div>
 	</div>
+        	
+	</c:when>
+	
+	<c:otherwise>
+	<div id="fh5co-main">
+	<div class="container">
+	<div class="row">
+    <div id="fh5co-board" data-columns>
+		
+		<c:if test="${not empty showMemberList }">
+					
+		<c:forEach var="mem" items="${showMemberList}">
+		
+			<div class="item">
+				<div class="animate-box">
+	        		<c:choose>
+	        		<c:when test="${empty mem.mpic }">
+	        			<a href="/resources/hydrogen/images/img_1.jpg" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
+	        			<img src="/resources/hydrogen/images/img_1.jpg" alt="회원사진이 등록 되지 않았습니다."></a>
+	        		</c:when>
+	        		<c:otherwise>
+	        			<a href="/member/memberInfo?num=${mem.num }" >
+	        			<img src="/resources/upload/${mem.mpic }" alt="회원 이미지"></a>
+	        		</c:otherwise>
+	        		</c:choose>
+	        		
+	        		<c:choose>
+	        		<c:when test="${empty mem.comment }">
+	        			<div class="fh5co-desc">자기소개가 아직 작성되지 않았습니다.</div>
+	        		</c:when>
+	        		<c:otherwise>
+	        			<div class="fh5co-desc">${mem.comment }</div>
+	        		</c:otherwise>
+	        		
+	        		</c:choose>
+	    	        	
+	        	</div>
+	        </div>
+				
+		</c:forEach>
+		</c:if>
+			
+		
+	</div>
+	</div>
+	</div>
+	</div>	
+	
+	
+	</c:otherwise>
+	
+	</c:choose>
+
+
+        	 	
+   
+   
+		
+	
+
+
 
  	<jsp:include page="../include/footer2.jsp"/>
-
 
 	<!-- jQuery -->
 	<script src="/resources/hydrogen/js/jquery.min.js"></script>

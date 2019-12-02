@@ -4,15 +4,18 @@ package com.wwm.ww4;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.file.Files;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
+
+import java.util.Random;
+
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +33,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.wwm.domain.AttachVO;
 import com.wwm.domain.MemberVO;
 import com.wwm.service.AttachService;
-import com.wwm.service.BoardService;
+
 import com.wwm.service.MemberService;
 
 import net.coobird.thumbnailator.Thumbnailator;
@@ -92,9 +95,13 @@ public class MemberController {
 
 	@GetMapping("/login2")
 	public String login2() {
+		
 		return "member/login2";
 	}
 
+	
+	
+	
 	@PostMapping("/login2")
 	public ResponseEntity<String> login2(String email, String passwd, HttpSession session) {
 		
@@ -130,8 +137,12 @@ public class MemberController {
 		session.setAttribute("name", name);
 		session.setAttribute("num", num);
 		session.setAttribute("email", email);
+		
+		
+		
+		// 리다이렉트 경로 위치 지정
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Location", "/"); // 리다이렉트 경로 위치 지정
+		headers.add("Location", "/"); 
 
 		// 리다이렉트일 경우 HttpStatus.Found 지정해야 함
 		return new ResponseEntity<String>(headers, HttpStatus.FOUND);
@@ -165,9 +176,7 @@ public class MemberController {
 	public String mypage(String email, Model model) {
 		
 		MemberVO memberVO = memberService.getMemberByEmail(email);
-		int bno=memberVO.getNum();
-		
-		
+			
 		model.addAttribute("member", memberVO);
 		
 		return "member/mypage";
@@ -246,6 +255,14 @@ public class MemberController {
 		return isImageType;
 	}
 	
+	@GetMapping("/memberInfo")
+	public String memberInfo(int num, Model model) {
+		
+		MemberVO memberVO = memberService.getMemberByNum(num);
+		
+		model.addAttribute("owner",memberVO);
+		return "member/yourpage";
+	}
 	
 
 }
