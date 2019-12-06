@@ -32,6 +32,9 @@
 	<!-- Google Webfonts -->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Gaegu&display=swap" rel="stylesheet">
+		
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="/resources/hydrogen/css/animate.css">
@@ -44,7 +47,7 @@
 	<!-- Theme Style -->
 	<link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 	<!-- Main Style -->
-	<link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=3">
+	<link rel="stylesheet" href="/resources/css/main.css?ver=1">
 	
 	<!-- Modernizr JS -->
 	<script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
@@ -167,6 +170,7 @@
 		
 			<div class="item">
 				<div class="animate-box">
+	        		
 	        		<c:choose>
 	        		<c:when test="${empty mem.mpic }">
 	        			<a href="/resources/hydrogen/images/img_1.jpg" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
@@ -183,7 +187,52 @@
 	        			<div class="fh5co-desc">자기소개가 아직 작성되지 않았습니다.</div>
 	        		</c:when>
 	        		<c:otherwise>
-	        			<div class="fh5co-desc">${mem.comment }</div>
+	        			
+	        			<div class="intro">
+	        			<div class="line1">
+	        			${mem.name } &nbsp;
+	        			
+	        			<c:if test="${mem.gender eq '남' }">
+	        			<img src="/resources/images/icon/manicon1.png" width="50" height="50">
+	        			</c:if>
+	        			<c:if test="${mem.gender eq '여' }">
+	        			<img src="/resources/images/icon/womanicon1.png" width="50" height="50">
+	        			</c:if>
+	        
+	        			<!-- hobby -->
+	        			<c:if test="${mem.hobby eq 'hobby1' }">
+	        			<img src="/resources/images/hobby/drink.png" width="30" height="30">
+	        			</c:if>
+	        			
+	        			<c:if test="${mem.hobby eq 'hobby2' }">
+	        			<img src="/resources/images/hobby/Ham.png" width="30" height="30">
+	        			</c:if>
+	        			
+	        			<c:if test="${mem.hobby eq 'hobby3' }">
+	        			<img src="/resources/images/hobby/soccer.png" width="30" height="30">
+	        			</c:if>
+	        			
+	        			<c:if test="${mem.hobby eq 'hobby4' }">
+	        			<img src="/resources/images/hobby/study.png" width="30" height="30">
+	        			</c:if>
+	        			
+	        			<c:if test="${mem.hobby eq 'hobby5' }">
+	        			<img src="/resources/images/hobby/trip.png" width="30" height="30">
+	        			</c:if>
+	        			        		
+	        			&nbsp; ${mem.age } 세  
+	        			
+	        			</div>    			     		
+	        		
+	        			<div class="line2">
+	        				<span class="comment">${mem.comment }</span>
+	        			</div>
+	        		       	
+	        		
+	        		       			
+	        			</div>
+	        			
+	        		
 	        		</c:otherwise>
 	        		
 	        		</c:choose>
