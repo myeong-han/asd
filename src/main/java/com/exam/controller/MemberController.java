@@ -192,14 +192,14 @@ public class MemberController {
 				
 		List<AttachVO> attachList = new ArrayList<AttachVO>();
 		
-//		String mpic="";
-//		MemberVO nofixVO = memberService.getMemberByEmail(memberVO.getEmail());
+		String mpic="";
+		MemberVO nofixVO = memberService.getMemberByEmail(memberVO.getEmail());
 		
 		for(MultipartFile multipartFile : files) {
-//			if(multipartFile.isEmpty()) {
-//				mpic=nofixVO.getMpic();
-//				continue;
-//			}
+			if(multipartFile.isEmpty()) {
+				mpic=nofixVO.getMpic();
+				continue;
+			}
 			
 			String uploadFileName = multipartFile.getOriginalFilename();
 			UUID uuid = UUID.randomUUID();
@@ -213,7 +213,7 @@ public class MemberController {
 			attachVO.setPath(realPath);
 			attachVO.setName(multipartFile.getOriginalFilename());
 			
-//			mpic=multipartFile.getOriginalFilename();
+			mpic=multipartFile.getOriginalFilename();
 			
 			if(isImageType(saveFile)) {
 				File thumnailFile = new File(realPath, "s_"+uploadFileName);
@@ -228,9 +228,9 @@ public class MemberController {
 		} // for문
 		
 		
-//		memberVO.setMpic(mpic);
-//		memberService.updateMember(memberVO);
-//		attachService.insertAttaches(attachList);
+		memberVO.setMpic(mpic);
+		memberService.updateMember(memberVO);
+		attachService.insertAttaches(attachList);
 		
 		return "main/main";
 	}
@@ -250,6 +250,13 @@ public class MemberController {
 		return isImageType;
 	}
 	
-// 합침	
+	@GetMapping("/memberInfo")
+	public String memberInfo(String email, Model model) {
+		
+		MemberVO memberVO = memberService.getMemberByEmail(email);
+		
+		model.addAttribute("owner",memberVO);
+		return "member/yourpage";
+	}
 
 }
