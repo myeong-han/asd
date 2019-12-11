@@ -250,6 +250,6 @@ public class MemberController {
 		return isImageType;
 	}
 	
-	
+// 합침	
 
 }
