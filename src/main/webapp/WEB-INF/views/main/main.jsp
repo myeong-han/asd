@@ -75,7 +75,9 @@
 	        		<a href="/resources/hydrogen/images/img_1.jpg" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
 	        		<img src="/resources/hydrogen/images/img_1.jpg" alt="Free HTML5 Bootstrap template"></a>
         		</div>
-        		<div class="fh5co-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?</div>
+        		<div class="fh5co-desc">
+        			<a href="/resources/page.html">채팅하기</a>
+        		</div>
         	</div>
         	<div class="item">
         		<div class="animate-box">
