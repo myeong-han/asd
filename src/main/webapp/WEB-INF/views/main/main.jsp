@@ -32,9 +32,6 @@
 	<!-- Google Webfonts -->
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Gaegu&display=swap" rel="stylesheet">
-		
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="/resources/hydrogen/css/animate.css">
@@ -47,7 +44,7 @@
 	<!-- Theme Style -->
 	<link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 	<!-- Main Style -->
-	<link rel="stylesheet" href="/resources/css/main.css?ver=1">
+	<link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=3">
 	
 	<!-- Modernizr JS -->
 	<script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
@@ -58,21 +55,22 @@
 
 	</head>
 	<body>
+		
 	
 	<jsp:include page="../include/menu.jsp"/>
-	<jsp:include page="../include/header.jsp"/>
+	<jsp:include page="../include/header2.jsp"/>
 
 	<!-- END .header -->
-	<c:choose>
-	<c:when test="${empty email}">
+	
 	
 	<div id="fh5co-main">
-	<div class="container">
-	<div class="row">
-    <div id="fh5co-board" data-columns>
+		<div class="container">
 
-	
-		<div class="item">
+			<div class="row">
+
+        <div id="fh5co-board" data-columns>
+
+        	<div class="item">
         		<div class="animate-box">
 	        		<a href="/resources/hydrogen/images/img_1.jpg" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
 	        		<img src="/resources/hydrogen/images/img_1.jpg" alt="Free HTML5 Bootstrap template"></a>
@@ -148,122 +146,14 @@
 	        		<img src="/resources/hydrogen/images/img_10.jpg" alt="Free HTML5 Bootstrap template"></a>
 	        		<div class="fh5co-desc">Incidunt, eaque et. Et odio excepturi, eveniet facilis explicabo assumenda.</div>
         		</div>
-        	</div>  
-        	
-       
-    </div>
-    </div>
-    </div>
+        	</div>   	
+        </div>
+        </div>
+       </div>
 	</div>
-        	
-	</c:when>
-	
-	<c:otherwise>
-	<div id="fh5co-main">
-	<div class="container">
-	<div class="row">
-    <div id="fh5co-board" data-columns>
-		
-		<c:if test="${not empty showMemberList }">
-					
-		<c:forEach var="mem" items="${showMemberList}">
-		
-			<div class="item">
-				<div class="animate-box">
-	        		
-	        		<c:choose>
-	        		<c:when test="${empty mem.mpic }">
-	        			<a href="/resources/hydrogen/images/img_1.jpg" class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
-	        			<img src="/resources/hydrogen/images/img_1.jpg" alt="회원사진이 등록 되지 않았습니다."></a>
-	        		</c:when>
-	        		<c:otherwise>
-	        			<a href="/member/memberInfo?num=${mem.unum }" >
-	        			<img src="/resources/upload/${mem.mpic }" alt="회원 이미지"></a>
-	        		</c:otherwise>
-	        		</c:choose>
-	        		
-	        		<c:choose>
-	        		<c:when test="${empty mem.intro }">
-	        			<div class="fh5co-desc">자기소개가 아직 작성되지 않았습니다.</div>
-	        		</c:when>
-	        		<c:otherwise>
-	        			
-	        			<div class="intro">
-	        			<div class="line1">
-	        			${mem.username } &nbsp;
-	        			
-	        			<c:if test="${mem.gender eq '남' }">
-	        			<img src="/resources/images/icon/manicon1.png" width="50" height="50">
-	        			</c:if>
-	        			<c:if test="${mem.gender eq '여' }">
-	        			<img src="/resources/images/icon/womanicon1.png" width="50" height="50">
-	        			</c:if>
-	        
-	        			<!-- hobby -->
-	        			<c:if test="${mem.hobby1 eq 'hobby1' }">
-	        			<img src="/resources/images/hobby/drink.png" width="30" height="30">
-	        			</c:if>
-	        			
-	        			<c:if test="${mem.hobby1 eq 'hobby2' }">
-	        			<img src="/resources/images/hobby/Ham.png" width="30" height="30">
-	        			</c:if>
-	        			
-	        			<c:if test="${mem.hobby1 eq 'hobby3' }">
-	        			<img src="/resources/images/hobby/soccer.png" width="30" height="30">
-	        			</c:if>
-	        			
-	        			<c:if test="${mem.hobby1 eq 'hobby4' }">
-	        			<img src="/resources/images/hobby/study.png" width="30" height="30">
-	        			</c:if>
-	        			
-	        			<c:if test="${mem.hobby1 eq 'hobby5' }">
-	        			<img src="/resources/images/hobby/trip.png" width="30" height="30">
-	        			</c:if>
-	        			        		
-	        			&nbsp; ${mem.age } 세  
-	        			
-	        			</div>    			     		
-	        		
-	        			<div class="line2">
-	        				<span class="comment">${mem.intro }</span>
-	        			</div>
-	        		       	
-	        		
-	        		       			
-	        			</div>
-	        			
-	        		
-	        		</c:otherwise>
-	        		
-	        		</c:choose>
-	    	        	
-	        	</div>
-	        </div>
-				
-		</c:forEach>
-		</c:if>
-			
-		
-	</div>
-	</div>
-	</div>
-	</div>	
-	
-	
-	</c:otherwise>
-	
-	</c:choose>
 
+ 	<jsp:include page="../include/footer2.jsp"/>
 
-        	 	
-   
-   
-		
-	
-
-
-
- 	<jsp:include page="../include/footer.jsp"/>
 
 	<!-- jQuery -->
 	<script src="/resources/hydrogen/js/jquery.min.js"></script>

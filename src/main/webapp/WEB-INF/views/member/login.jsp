@@ -4,96 +4,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>ASD &mdash;  </title>
-
-
-<!-- Google Webfonts -->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	
-<!-- Animate.css -->
-<link rel="stylesheet" href="/resources/hydrogen/css/animate.css">
-<!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="/resources/hydrogen/css/icomoon.css">
-<!-- Magnific Popup -->
-<link rel="stylesheet" href="/resources/hydrogen/css/magnific-popup.css">
-<!-- Salvattore -->
-<link rel="stylesheet" href="/resources/hydrogen/css/salvattore.css">
-<!-- Theme Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/style.css">
-<!-- Main Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=1">
-
-<!-- Modernizr JS -->
-<script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
-<!-- FOR IE9 below -->
-<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">  
+<link rel="stylesheet" href="/resources/css/main.css?v=1" type="text/css" media="all">
 </head>
 <body>
-	
-	<jsp:include page="../include/menu.jsp"/>
-	<jsp:include page="../include/header.jsp" />
-
-
-	
-	<div id="loginframe" class="container">
-	<div class="col-md-8 col-md-offset-2">
-		
-		<br><br>
-		<h2> Greeting </h2>
-		<br><br>
-		
-		
-		<form action="/member/login" class="form-horizontal" method="post" name="loginfrm">
-		<div class="row">
-						
-			<div class="form-group">
-			<div class="col-md-6 col-md-offset-3">		
-				<input type="email" class="form-control " id="email" name="email"
-						placeholder="이메일 주소"></div>
-			</div>
-				
-			
-			<div class="form-group">
-			<div class="col-md-6 col-md-offset-3">		
-				<input type="password" class="form-control " id="password"
-						name="passwd" placeholder="패스워드">
-			</div>
-			</div>
-			
-			<div class="form-group">
-			<input type="submit" class="btn btn-primary col-md-6 col-md-offset-3" value="로그인">
-			</div>
-			
-		
+ <jsp:include page="../include/header2.jsp"/>
+<div id="container">
+<h1>로그인 화면입니다.</h1>
+	<br><br>
+	<form action="/member/login" id="loginform" class="form-horizontal" method="post">
+	<br>
+	<div class="form-group">
+		<label class="col-lg-4 control-label" for="id">ID</label>
+		<div class="col-lg-1"></div>
+		<div class="col-lg-6">
+		<input type="text" class="form-control input-lg" id="id" name="id" placeholder="아이디">
 		</div>
-		</form>
+	</div>
+	<div class="form-group">
+		<label class="col-lg-5 control-label" for="passwd">Password</label>
+		<div class="col-lg-6">
+		<input type="password" class="form-control input-lg" id="passwd" name="passwd" placeholder="비밀번호">
+		</div>
+	</div>
 	
-	</div>
-	</div>
+	
+	<input type="submit" value="로그인" class="btn btn-primary">
+	<input type="button" value="메인으로" class="btn btn-default" onclick="location.href='/';">
+	
+		
+	<br>	
+	</form>
+</div>
+ <jsp:include page="../include/footer2.jsp"/>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-
-	<jsp:include page="../include/footer.jsp" />
-
-
-	<!-- jQuery -->
-	<script src="/resources/hydrogen/js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="/resources/hydrogen/js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="/resources/hydrogen/js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="/resources/hydrogen/js/jquery.waypoints.min.js"></script>
-	<!-- Magnific Popup -->
-	<script src="/resources/hydrogen/js/jquery.magnific-popup.min.js"></script>
-	<!-- Salvattore -->
-	<script src="/resources/hydrogen/js/salvattore.min.js"></script>
-	<!-- Main JS -->
-	<script src="/resources/hydrogen/js/main.js"></script>
 </body>
 </html>
