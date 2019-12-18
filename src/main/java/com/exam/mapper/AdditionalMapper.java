@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 
 import com.exam.domain.AdditionalVO;
-import com.exam.domain.MemberVO;
+import com.wwm.domain.MemberVO;
 
 public interface AdditionalMapper {
 	
