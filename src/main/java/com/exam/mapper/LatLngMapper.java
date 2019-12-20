@@ -22,5 +22,5 @@ public interface LatLngMapper {
 	public int countLatLngByUnum(int unum);
 	
 	@Delete("DELETE FROM lat_lng WHERE unum=#{unum}")
-	public void deleteLatLngByUnum(int unum);
+	public int deleteLatLngByUnum(int unum);
 }

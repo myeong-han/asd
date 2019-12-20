@@ -25,6 +25,6 @@ public interface AdditionalMapper {
 	@Select("SELECT COUNT(*) FROM additional WHERE unum=#{unum}")
 	public int countAdditionByUnum(int unum);
 	
-	@Delete("DELETE FROM addtional WHERE unum=#{unum}")
+	@Delete("DELETE FROM additional WHERE unum=#{unum}")
 	public void deleteAddition(int unum);
 }

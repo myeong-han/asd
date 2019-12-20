@@ -97,7 +97,7 @@
 									<th class="text-center">지역</th>
 									<td>
 										<div class="form-group">
-											<div class="col-md-6 col-md-offset-3">
+										
 												<select class="form-control" name="local" id="local">
 													<option value="" disabled selected>지역</option>
 													<option value="서울">서울</option>
@@ -105,15 +105,17 @@
 													<option value="대구">대구</option>
 													<option value="부산">부산</option>
 												</select>
-											</div>
+											
 										</div>
 								</tr>
 							</table>
 						</div>
 
 						<br>
-						<br> <input type="submit" value="회정보 수정하기"
-							class="btn btn-info col-md-offset-4 col-md-4">
+						<br> <input type="submit" value="회원정보 수정하기"
+							class="btn btn-info col-md-offset-4 col-md-3">
+							<input type ="button" onclick="check();" value ="회원탈퇴"
+							class="btn btn-danger col-me-3">
 
 					</form>
 
@@ -143,5 +145,19 @@
 	<script src="/resources/hydrogen/js/salvattore.min.js"></script>
 	<!-- Main JS -->
 	<script src="/resources/hydrogen/js/main.js"></script>
+	<script>
+	function check(){
+		var result = confirm('${email}님 계정을 정말로 삭제하시겠습니까?');
+		if (result == false){
+			
+		} else {
+			location.href='/member/delete?email=${email}';
+		}
+	
+		
+	}
+	
+	</script>
+	
 </body>
 </html>

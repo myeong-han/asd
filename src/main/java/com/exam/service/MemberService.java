@@ -85,6 +85,7 @@ public class MemberService {
 
 	public void deleteMember(String email) {
 		MemberVO memberVO = memberMapper.getMemberByEmail(email);
+		latLngMapper.deleteLatLngByUnum(memberVO.getUnum());
 		additionalMapper.deleteAddition(memberVO.getUnum());
 		memberMapper.deleteMemberByEmail(email);
 	}
@@ -137,6 +138,10 @@ public class MemberService {
 	
 	public boolean isLatLngExist(int unum) {
 		return 1 == latLngMapper.countLatLngByUnum(unum);
+	}
+	
+	public int deleteLatLngByUnum (int unum) {
+		return latLngMapper.deleteLatLngByUnum(unum);
 	}
 	
 	public List<LatLngVO> getLatLngAll(int unum) {

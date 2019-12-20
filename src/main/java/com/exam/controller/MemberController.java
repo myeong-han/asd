@@ -27,6 +27,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -222,7 +223,28 @@ public class MemberController {
 
 		return new ResponseEntity<String>(sb.toString(), headers, HttpStatus.OK);
 	}
-
+	
+	@GetMapping("delete")
+	public ResponseEntity<String> deletes(@ModelAttribute("email")String email,HttpSession session) {
+		
+		memberService.deleteMember(email);
+		session.invalidate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Location","/");
+		return new ResponseEntity<String>(headers, HttpStatus.FOUND); // HttpStatus.FOUND 리다이렉트
+		
+	}
+	/*
+	@PostMapping("delete")
+	public ResponseEntity<String> delete(String email){
+		memberService.deleteMember(email);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Location","/main/main");
+		return new ResponseEntity<String>(headers, HttpStatus.FOUND); // HttpStatus.FOUND 리다이렉트
+		
+	}*/
+	
 	@GetMapping("additional")
 	public String additional(String email, Model model) {
 		AdditionalVO additionalVO = memberService.getAddtionByUnum(memberService.getMemberByEmail(email).getUnum());
