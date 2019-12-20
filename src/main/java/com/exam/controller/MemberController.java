@@ -41,10 +41,12 @@ import com.exam.domain.MemberVO;
 import com.exam.service.AttachService;
 import com.exam.service.MemberService;
 
+import lombok.extern.log4j.Log4j;
 import net.coobird.thumbnailator.Thumbnailator;
 
 @Controller
 @RequestMapping("member")
+@Log4j
 public class MemberController {
 
 	@Autowired
@@ -162,8 +164,15 @@ public class MemberController {
 
 
 	@GetMapping("logout")
-	public ResponseEntity<String> logout(HttpSession session) {
+	public ResponseEntity<String> logout(String email, HttpSession session) {
+		log.info("email: "+email);
+		int unum = memberService.getMemberByEmail(email).getUnum();
+		if (memberService.isLatLngExist(unum)) {
+			memberService.removeLatLng(unum);
+		}
+
 		session.invalidate();
+
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-Type", "text/html; charset=UTF-8");
 
@@ -188,21 +197,21 @@ public class MemberController {
 	public String mypage(String email, Model model) {
 		return "member/mypage";
 	}
-	
+
 	@GetMapping("updateMember")
 	public String updateMember(String email,Model model) {
 		MemberVO memberVO = memberService.getMemberByEmail(email);
 		model.addAttribute("members",memberVO);
-		
+
 		return "member/updateMember";
 	}
-	
+
 	@PostMapping("updateMember")
 	public ResponseEntity<String> updateMember(String email, MemberVO memberVO) {
-		
-				
+
+
 		memberService.updateMember(memberVO);
-		
+
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-Type", "text/html; charset=UTF-8");
 		StringBuilder sb = new StringBuilder();
@@ -210,10 +219,10 @@ public class MemberController {
 		sb.append("alert('" + "회원정보가 수정되었습니다." + "');");
 		sb.append("location.href='/member/mypage';");
 		sb.append("</script>");
-		
+
 		return new ResponseEntity<String>(sb.toString(), headers, HttpStatus.OK);
 	}
-	
+
 	@GetMapping("additional")
 	public String additional(String email, Model model) {
 		AdditionalVO additionalVO = memberService.getAddtionByUnum(memberService.getMemberByEmail(email).getUnum());
@@ -256,94 +265,61 @@ public class MemberController {
 		return "member/attach";
 	}
 
+	@PostMapping("attach")
+	public String attach(MultipartFile[] files, String email, HttpServletRequest request) throws Exception{
 
-	@PostMapping(value = "latLng", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
-
-	   public String attach(MultipartFile[] files, String email, HttpServletRequest request) throws Exception{
-	      
-	      int unum = memberService.getMemberByEmail(email).getUnum();
-	      
-	      AdditionalVO additionalVO = new AdditionalVO();
-	      
-	      ServletContext application = request.getServletContext();
-	      String realPath = application.getRealPath("/resources/upload");
-	      
-	      List<AttachVO> attachList = new ArrayList<AttachVO>();
-	      
-	      String mpic="";
-	      
-	      for(MultipartFile multipartFile : files) {
-	         
-	         String uploadFileName = multipartFile.getOriginalFilename();
-	         UUID uuid = UUID.randomUUID();
-	         File saveFile = new File(realPath, uploadFileName);
-	      
-	         multipartFile.transferTo(saveFile);
-	         
-	         AttachVO attachVO = new AttachVO();
-	         attachVO.setUnum(unum);
-	         attachVO.setUuid(uuid.toString());
-	         attachVO.setPath(realPath);
-	         attachVO.setName(multipartFile.getOriginalFilename());
-	         
-	         mpic=multipartFile.getOriginalFilename();
-	         
-	         if(isImageType(saveFile)) {
-	            File thumnailFile = new File(realPath, "s_"+uploadFileName);
-	            try(FileOutputStream fos = new FileOutputStream(thumnailFile)){
-	               Thumbnailator.createThumbnail(multipartFile.getInputStream(), fos, 100, 100);
-	            }
-	            attachVO.setFiletype("I");
-	         } else {
-	            attachVO.setFiletype("O");
-	         }
-	         attachList.add(attachVO);
-	      } // for문
-	      
-	      additionalVO.setMpic(mpic);
-	      additionalVO.setUnum(unum);
-	      
-	      if (memberService.isAdditionExist(unum)) {
-	         memberService.updateAddition(additionalVO);
-	      } else {
-	         memberService.insertAddition(additionalVO);
-	      }
-	      
-	      attachService.insertAttaches(attachList);
-	      
-	      return "member/mypage";
-	   }
-	
-	@PostMapping("latLng")
-
-	@ResponseBody
-	public ResponseEntity<String> latLng(
-			@RequestParam("lat")double lat,
-			@RequestParam("lng")double lng,
-			String email) {
 		int unum = memberService.getMemberByEmail(email).getUnum();
-		LatLngVO latLngVO = new LatLngVO();
-		latLngVO.setLat(lat);
-		latLngVO.setLng(lng);
-		latLngVO.setUnum(unum);
 
-		int count = 0;
-		if (memberService.isLatLngExist(unum)) {
-			count = memberService.updateLatLng(latLngVO);
+		AdditionalVO additionalVO = new AdditionalVO();
+
+		ServletContext application = request.getServletContext();
+		String realPath = application.getRealPath("/resources/upload");
+
+		List<AttachVO> attachList = new ArrayList<AttachVO>();
+
+		String mpic="";
+
+		for(MultipartFile multipartFile : files) {
+
+			String uploadFileName = multipartFile.getOriginalFilename();
+			UUID uuid = UUID.randomUUID();
+			File saveFile = new File(realPath, uploadFileName);
+
+			multipartFile.transferTo(saveFile);
+
+			AttachVO attachVO = new AttachVO();
+			attachVO.setUnum(unum);
+			attachVO.setUuid(uuid.toString());
+			attachVO.setPath(realPath);
+			attachVO.setName(multipartFile.getOriginalFilename());
+
+			mpic=multipartFile.getOriginalFilename();
+
+			if(isImageType(saveFile)) {
+				File thumnailFile = new File(realPath, "s_"+uploadFileName);
+				try(FileOutputStream fos = new FileOutputStream(thumnailFile)){
+					Thumbnailator.createThumbnail(multipartFile.getInputStream(), fos, 100, 100);
+				}
+				attachVO.setFiletype("I");
+			} else {
+				attachVO.setFiletype("O");
+			}
+			attachList.add(attachVO);
+		} // for문
+
+		additionalVO.setMpic(mpic);
+		additionalVO.setUnum(unum);
+
+		if (memberService.isAdditionExist(unum)) {
+			memberService.updateAddition(additionalVO);
 		} else {
-			count = memberService.insertLatLng(latLngVO);
+			memberService.insertAddition(additionalVO);
 		}
 
-		ResponseEntity<String> entity = null;
-		if (count > 0) {
-			entity = new ResponseEntity<String>("success", HttpStatus.OK);
-		} else {
-			entity = new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+		attachService.insertAttaches(attachList);
 
-		return entity;
+		return "member/mypage";
 	}
-
 
 	private boolean isImageType(File file) throws Exception {
 		boolean isImageType=false;
