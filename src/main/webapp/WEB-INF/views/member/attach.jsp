@@ -18,15 +18,7 @@
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
 
-<meta property="og:title" content="" />
-<meta property="og:image" content="" />
-<meta property="og:url" content="" />
-<meta property="og:site_name" content="" />
-<meta property="og:description" content="" />
-<meta name="twitter:title" content="" />
-<meta name="twitter:image" content="" />
-<meta name="twitter:url" content="" />
-<meta name="twitter:card" content="" />
+
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="favicon.ico">
@@ -50,7 +42,7 @@
 <!-- Theme Style -->
 <link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=5">
+<link rel="stylesheet" href="/resources/hydrogen/css/main.css?ver=11">
 
 
 
@@ -70,12 +62,19 @@
 
 
 	<div id="fh5co-main">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<h2>Personal Bio</h2>
+	<div class="container">
+	<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+	
+		<h2>Personal Bio</h2>		
+					
+		<div class="fh5co-spacer fh5co-spacer-sm"></div>
 
-					<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+		<jsp:include page="../include/picList.jsp" />
+
+					
+
 
 					<form action="/member/attach" method="post" name="myfrm"
 						enctype="multipart/form-data">
@@ -99,10 +98,12 @@
 						<input type="submit" value="이미지 업로드" class="btn btn-info col-md-offset-4 col-md-4">
 
 					</form>
+					
+					
 
-				</div>
-			</div>
-		</div>
+	</div>
+	</div>
+	</div>
 	</div>
 
 	<jsp:include page="../include/footer.jsp" />
@@ -113,9 +114,7 @@
 	<!-- jQuery Easing -->
 	<script src="/resources/hydrogen/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="/resources/hydrogen/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
 	<script src="/resources/hydrogen/js/jquery.waypoints.min.js"></script>
 	<!-- Magnific Popup -->
@@ -124,5 +123,28 @@
 	<script src="/resources/hydrogen/js/salvattore.min.js"></script>
 	<!-- Main JS -->
 	<script src="/resources/hydrogen/js/main.js"></script>
+	<script>
+	$('td#pictd').on('click',function(){
+		var $img1 = $(this).find('img');
+		var picname = $img1.data('pic');
+		var bigimg = $('img#bigimg');
+		bigimg.attr('src','/resources/upload/'+picname);
+		$('input#mpic').val(picname);
+		
+	});
+	
+	function picCheck(){
+			
+		if (mpic.value==''){
+			alert('변경할 이미지를 선택해주세요.');
+			return false;
+		} else {
+			return true;
+		}
+			
+	}
+	
+	
+	</script>
 </body>
 </html>

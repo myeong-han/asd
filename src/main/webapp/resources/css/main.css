@@ -21,12 +21,6 @@ body{
 	max-height: 500px;
 }
 
-.comment{
-
-	padding:10px 0px 0px 0px;
-}
-
-
 #joinframe{
 	text-align:center;
 	font-family: 'Gaegu', cursive;
@@ -37,16 +31,27 @@ body{
 }
 
 #uptable{margin:auto;}
-
 #location{margin:auto; text-align:center;}
 #upimg{margin:auto; text-align:center;}
+#message-text{resize:none;}
 
+.comment{padding:10px 0px 0px 0px;}
 .intro{
-	margin:auto; 
+	margin:5px; 
 	text-align:center;	
 	font-family: 'Gaegu', cursive;
 	font-size: 20px;
 }
+
+.closebtn{margin: 0;}
+.btn-sm{margin: 15px 5px;}
+.picList{}
+img#bigimg{max-width:500px;}
+
+
+
+
+
 
 .map_wrap, .map_wrap * {
 	margin: 0;

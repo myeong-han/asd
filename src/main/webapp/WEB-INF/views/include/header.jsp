@@ -5,6 +5,18 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
+					<button class="btn btn-info btn-sm pull-left" id="joinlink"
+					data-toggle="modal" data-target="#joinModal">JOIN </button> 
+				<c:choose>
+				<c:when test="${empty email}" >
+					<button class="btn btn-success btn-sm pull-left" id="loginlink"
+					data-toggle="modal" data-target="#loginModal">LOGIN</button>
+				</c:when>
+				<c:otherwise>
+					<button onclick="location.href='/member/logout';" class="btn btn-danger btn-sm pull-left">LOGOUT</button>
+				</c:otherwise>
+				</c:choose>
+				
 				<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu 
 				<i class="icon-menu"></i></a> <a class="navbar-brand" href="/">A SHIP DA</a>
 			</div>

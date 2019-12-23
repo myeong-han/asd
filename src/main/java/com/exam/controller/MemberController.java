@@ -38,13 +38,17 @@ import com.exam.domain.AdditionalVO;
 import com.exam.domain.AttachVO;
 import com.exam.domain.LatLngVO;
 import com.exam.domain.MemberVO;
+import com.exam.domain.MessageVO;
 import com.exam.service.AttachService;
 import com.exam.service.MemberService;
 
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
 import net.coobird.thumbnailator.Thumbnailator;
 
 @Controller
 @RequestMapping("member")
+@Log4j
 public class MemberController {
 
 	@Autowired
@@ -226,7 +230,12 @@ public class MemberController {
 	}
 	
 	@GetMapping("attach")
-	public String attach() {
+	public String attach(String email, Model model) {
+		int unum = memberService.getMemberByEmail(email).getUnum();
+		List<String> attachPicList = attachService.getAttachPics(unum);
+		AdditionalVO additionalVO = memberService.getAddtionByUnum(unum);
+		model.addAttribute("addition",additionalVO);
+		model.addAttribute("picList", attachPicList);
 		return "member/attach";
 	}
 	
@@ -276,7 +285,8 @@ public class MemberController {
 		additionalVO.setUnum(unum);
 		
 		if (memberService.isAdditionExist(unum)) {
-			memberService.updateAddition(additionalVO);
+			// 사진만 업데이트하는 메소드 추가됨
+			memberService.updateAdditionPic(additionalVO);
 		} else {
 			memberService.insertAddition(additionalVO);
 		}
@@ -329,5 +339,68 @@ public class MemberController {
 		
 		return isImageType;
 	}
+	
+	// 추가된 메시지 메소드 (멤버서비스-멤버 매퍼의 마지막 부분에 추가됨, 메세지 VO 생성됨)
+	@PostMapping("message")
+	public ResponseEntity<String> sendMessage(MessageVO messageVO) {
+		
+		int check=memberService.insertMessage(messageVO);
+		
+		String message = "";
+				
+		if (check == 0) {
+			message = "메세지 전송에 실패했습니다.";
+		} else  {
+			message = "메세지 전송에 성공했습니다.";
+		}
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Type", "text/html; charset=UTF-8");
+		StringBuilder sb = new StringBuilder();
+		sb.append("<script>");
+		sb.append("alert('" + message + "');");
+		sb.append("history.back();");
+		sb.append("</script>");
+			
+		return new ResponseEntity<String>(sb.toString(), headers, HttpStatus.OK);
+
+	}
+	
+	@GetMapping("getMessages")
+	public String getMessages(String username, Model model) {
+		List<MessageVO> messageList = memberService.getMessages(username);
+		model.addAttribute("messageList",messageList);
+		return "member/message";
+	}
+	
+	@PostMapping("getMessagesL")
+	@ResponseBody
+	public List<MessageVO> getMessagesL(String username){
+		List<MessageVO> messageList = memberService.getMessages(username);
+		return messageList;
+	}
+	
+	public int checkMessage(String username) {
+		int check=0;
+		return check;
+	}
+	
+	@PostMapping("changeAddPic")
+	public String changeAddPic(String email, String mpic) {
+		int unum=memberService.getMemberByEmail(email).getUnum();
+		
+		if(mpic!=null) {
+			AdditionalVO additionalVO = new AdditionalVO();
+			additionalVO.setMpic(mpic);
+			additionalVO.setUnum(unum);
+			memberService.updateAdditionPic(additionalVO);
+			return "member/mypage";
+		} else {
+			return "member/mypage";
+		}
+		
+		
+	}
+	
 
 }

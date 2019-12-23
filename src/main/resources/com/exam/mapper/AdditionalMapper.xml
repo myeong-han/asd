@@ -18,4 +18,13 @@
 		SET mobile=#{mobile},hobby=#{hobby},intro=#{intro},mpic=#{mpic}
 		WHERE unum=#{unum}
 	</update>
+	
+	<update id="updateAdditionPic" parameterType="AdditionalVO">
+		UPDATE additional
+		SET mpic=#{mpic}
+		WHERE unum=#{unum}
+	</update>
+	
+	
+	
 </mapper>

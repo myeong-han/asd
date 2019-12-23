@@ -13,6 +13,7 @@ import com.exam.domain.AdditionalVO;
 import com.exam.domain.AttachVO;
 import com.exam.domain.LatLngVO;
 import com.exam.domain.MemberVO;
+import com.exam.domain.MessageVO;
 import com.exam.mapper.AdditionalMapper;
 import com.exam.mapper.AttachMapper;
 import com.exam.mapper.LatLngMapper;
@@ -118,6 +119,10 @@ public class MemberService {
 		return additionalMapper.updateAddition(additionalVO);
 	}
 	
+	public int updateAdditionPic(AdditionalVO additionalVO) {
+		return additionalMapper.updateAdditionPic(additionalVO);
+	}
+	
 	public void deleteAddition(int unum) {
 		additionalMapper.deleteAddition(unum);
 	}
@@ -145,5 +150,14 @@ public class MemberService {
 	public List<LatLngVO> getLatLngAll() {
 		return latLngMapper.getLatLngAll();
 	}
+	
+	public int insertMessage(MessageVO messageVO) {
+		return memberMapper.insertMessage(messageVO);
+	}
+	
+	public List<MessageVO> getMessages(String username) {
+		return memberMapper.getMessagesByName(username);
+	}
+	
 	
 }

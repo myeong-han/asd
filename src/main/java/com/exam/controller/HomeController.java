@@ -10,9 +10,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.exam.domain.AdditionalVO;
 import com.exam.domain.MemberVO;
+import com.exam.service.AttachService;
 import com.exam.service.MemberService;
 
 @Controller
@@ -20,6 +22,8 @@ public class HomeController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private AttachService attachService;
 	
 	@GetMapping("/")
 	public String home(HttpSession session) { 
@@ -46,13 +50,23 @@ public class HomeController {
 		return "main/main";
 	}
 	
-	@GetMapping("/about")
-	public String about() {return "etc/about";}
 	
-	@GetMapping("/contact")
-	public String contact() {return "etc/contact";}
+	// @ResponseBody 애노테이션을 통해 리턴값을 JSON형식으로 응답준다.
+	@GetMapping("/popup")
+	@ResponseBody
+	public List<Map<String,String>> popup(int unum) {
+			
+		List<Map<String, String>> popupMapList = new ArrayList<Map<String,String>>();
+		List<String> filenameList=attachService.getAttachPics(unum);
+								
+		for (String filename : filenameList) {
+			Map<String, String> popupMap = new HashMap<String, String>();
+			popupMap.put("src", "/resources/upload/" + filename);
+			popupMapList.add(popupMap);
+		}
+		
+		return popupMapList;
+	}
 	
-	@GetMapping("/pricing")
-	public String pricing() {return "etc/pricing";}
-
+	
 }

@@ -13,8 +13,11 @@ public interface AdditionalMapper {
 	// 회원 추가정보 삽입
 	public int insertAddition(AdditionalVO additionalVO);
 	
-	// 회원 추가정보 수정
+	// 회원 추가정보 전체 수정
 	public int updateAddition(AdditionalVO additionalVO);
+	
+	// 회원 대표사진 업데이트
+	public int updateAdditionPic(AdditionalVO additionalVO);
 	
 	@Select("SELECT * FROM additional WHERE unum=#{unum}")
 	public AdditionalVO getAddition(int unum);
