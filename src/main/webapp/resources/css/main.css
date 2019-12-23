@@ -233,3 +233,34 @@ body{
 	cursor: default;
 	color: #777;
 }
+
+
+/*Manually Generated*/
+.img-thumbnail {
+	background-color:#EEEEEE;
+	margin:10px;
+	width:100px;
+	height:100px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.crop-gall {
+	border-radius: 2%;
+	margin-left: auto; margin-right: auto;
+	position: relative;
+	width: 540px;
+	height: 300px;
+	overflow: hidden;
+}
+.crop-gall>img { 
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 300px;
+	width: auto;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}

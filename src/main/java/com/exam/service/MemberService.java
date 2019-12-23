@@ -120,6 +120,11 @@ public class MemberService {
 		return additionalMapper.updateAddition(additionalVO);
 	}
 	
+	// 메인이미지 수정
+	public int updateMpic(AdditionalVO additionalVO) {
+		return additionalMapper.updateMpic(additionalVO);
+	}
+	
 	public void deleteAddition(int unum) {
 		additionalMapper.deleteAddition(unum);
 	}

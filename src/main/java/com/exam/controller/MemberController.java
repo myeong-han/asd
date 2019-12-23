@@ -283,7 +283,15 @@ public class MemberController {
 	}
 
 	@GetMapping("attach")
-	public String attach() {
+	public String attach(String email, Model model) {
+		log.info("email: "+email);
+		int unum = memberService.getMemberByEmail(email).getUnum();
+		log.info("unum: "+unum);
+		AdditionalVO additionalVO = memberService.getAddtionByUnum(unum);
+		List<String> attachNames = attachService.getAttachpic(unum);
+		model.addAttribute("member",additionalVO);
+		model.addAttribute("picList",attachNames);
+
 		return "member/attach";
 	}
 
@@ -333,7 +341,7 @@ public class MemberController {
 		additionalVO.setUnum(unum);
 
 		if (memberService.isAdditionExist(unum)) {
-			memberService.updateAddition(additionalVO);
+			memberService.updateMpic(additionalVO);
 		} else {
 			memberService.insertAddition(additionalVO);
 		}
