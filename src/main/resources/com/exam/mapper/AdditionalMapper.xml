@@ -15,13 +15,16 @@
 	
 	<update id="updateAddition" parameterType="AdditionalVO">
 		UPDATE additional
-		SET mobile=#{mobile},hobby=#{hobby},intro=#{intro}
+		SET mobile=#{mobile},hobby=#{hobby},intro=#{intro},mpic=#{mpic}
 		WHERE unum=#{unum}
 	</update>
 	
-	<update id="updateMpic" parameterType="AdditionalVO">
+	<update id="updateAdditionPic" parameterType="AdditionalVO">
 		UPDATE additional
 		SET mpic=#{mpic}
 		WHERE unum=#{unum}
 	</update>
+	
+	
+	
 </mapper>

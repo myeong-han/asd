@@ -13,6 +13,7 @@ import com.exam.domain.AdditionalVO;
 import com.exam.domain.AttachVO;
 import com.exam.domain.LatLngVO;
 import com.exam.domain.MemberVO;
+import com.exam.domain.MessageVO;
 import com.exam.mapper.AdditionalMapper;
 import com.exam.mapper.AttachMapper;
 import com.exam.mapper.LatLngMapper;
@@ -36,7 +37,7 @@ public class MemberService {
 	
 	// 회원정보 수정
 	public void updateMember(MemberVO memberVO) {
-		 memberMapper.updateMember(memberVO);
+		memberMapper.updateMember(memberVO);
 	}
 	
 	// 성공 : 1, 실패 : 0, 아이디없음 : -1
@@ -115,20 +116,22 @@ public class MemberService {
 		return additionalMapper.insertAddition(additionalVO);
 	}
 	
-	
 	public int updateAddition(AdditionalVO additionalVO) {
 		return additionalMapper.updateAddition(additionalVO);
 	}
 	
-	// 메인이미지 수정
-	public int updateMpic(AdditionalVO additionalVO) {
-		return additionalMapper.updateMpic(additionalVO);
+	public int updateAdditionPic(AdditionalVO additionalVO) {
+		return additionalMapper.updateAdditionPic(additionalVO);
 	}
 	
 	public void deleteAddition(int unum) {
 		additionalMapper.deleteAddition(unum);
 	}
 
+	public boolean isAdditionExist(int unum) {
+		return additionalMapper.countAdditionByUnum(unum)!=0;
+	}
+	
 	public int insertLatLng(LatLngVO latLngVO) {
 		return latLngMapper.insertLatLng(latLngVO);
 	}
@@ -145,17 +148,21 @@ public class MemberService {
 		return 1 == latLngMapper.countLatLngByUnum(unum);
 	}
 	
-	public int deleteLatLngByUnum (int unum) {
-		return latLngMapper.deleteLatLngByUnum(unum);
-	}
-	
 	public List<LatLngVO> getLatLngAll(int unum) {
 		return latLngMapper.getLatLngAll(unum);
 	}
 	
-
-	public boolean isAdditionExist(int unum) {
-		return additionalMapper.countAdditionByUnum(unum)!=0;
+	public int deleteLatLngByUnum (int unum) {
+		return latLngMapper.deleteLatLngByUnum(unum);
 	}
-
+	
+	public int insertMessage(MessageVO messageVO) {
+		return memberMapper.insertMessage(messageVO);
+	}
+	
+	public List<MessageVO> getMessages(String username) {
+		return memberMapper.getMessagesByName(username);
+	}
+	
+	
 }

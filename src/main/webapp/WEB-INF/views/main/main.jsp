@@ -13,24 +13,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>ASD &mdash; Oppertunity knocks.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-<meta name="keywords"
-	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-<meta name="author" content="FREEHTML5.CO" />
-
-<!-- Facebook and Twitter integration -->
-<meta property="og:title" content="" />
-<meta property="og:image" content="" />
-<meta property="og:url" content="" />
-<meta property="og:site_name" content="" />
-<meta property="og:description" content="" />
-<meta name="twitter:title" content="" />
-<meta name="twitter:image" content="" />
-<meta name="twitter:url" content="" />
-<meta name="twitter:card" content="" />
+<meta name="description" content="Free Dating Site by TEAM 403-1" />
+<meta name="keywords" content="friend, dating, contact" />
+<meta name="author" content="TEAM 403-1" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="/resources/images/icon/icon.ico">
 
 <!-- Google Webfonts -->
 <link
@@ -56,7 +44,7 @@
 <!-- Theme Style -->
 <link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/css/main.css?ver=1">
+<link rel="stylesheet" href="/resources/css/main.css?ver=10">
 
 <!-- Modernizr JS -->
 <script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
@@ -195,18 +183,22 @@
 							</div>
 
 
-						</div>
-					</div>
-				</div>
+
+				
+
+
+			</div>
+			</div>
+			</div>
 			</div>
 
 		</c:when>
 
 		<c:otherwise>
 			<div id="fh5co-main">
-				<div class="container">
-					<div class="row">
-						<div id="fh5co-board" data-columns>
+			<div class="container">
+			<div class="row">
+			<div id="fh5co-board" data-columns>
 
 							<c:if test="${not empty maList}">
 
@@ -225,10 +217,8 @@
 													</a>
 												</c:when>
 												<c:otherwise>
-								
-														<img class ="cardimage" data-num ="${ma['member'].unum}" src="/resources/upload/${ma['addition'].mpic }"
-														alt="회원 이미지">
-													
+													<img class="cardimage" data-num="${ma['member'].unum }" 
+													src="/resources/upload/${ma['addition'].mpic }">
 												</c:otherwise>
 											</c:choose>
 
@@ -241,52 +231,70 @@
 													<div class="intro">
 														<div class="line1">
 															${ma['member'].username} &nbsp;
+															
+															${ma['member'].age }세  &nbsp;
+															
+															${ma['member'].local }
+														</div>
 
+														<div class="line2">
 															<c:if test="${ma['member'].gender eq '남' }">
-																<img src="/resources/images/icon/manicon1.png"
-																	width="50" height="50">
+																<img src="/resources/images/icon/man.png"
+																	width="30" height="30">
 															</c:if>
 															<c:if test="${ma['member'].gender eq '여' }">
-																<img src="/resources/images/icon/womanicon1.png"
-																	width="50" height="50">
+																<img src="/resources/images/icon/woman.png"
+																	width="30" height="30">
 															</c:if>
 
 															<!-- hobby -->
 															<c:if test="${ma['addition'].hobby eq '술' }">
-																<img src="/resources/images/hobby/drink.png" width="30"
+																<img src="/resources/images/icon/drink.png" width="30"
 																	height="30">
 															</c:if>
 
 															<c:if test="${ma['addition'].hobby eq '음식' }">
-																<img src="/resources/images/hobby/Ham.png" width="30"
+																<img src="/resources/images/icon/food.png" width="30"
 																	height="30">
 															</c:if>
 
 															<c:if test="${ma['addition'].hobby eq '운동' }">
-																<img src="/resources/images/hobby/soccer.png" width="30"
+																<img src="/resources/images/icon/health.png" width="30"
 																	height="30">
 															</c:if>
 
 															<c:if test="${ma['addition'].hobby eq '공부' }">
-																<img src="/resources/images/hobby/study.png" width="30"
+																<img src="/resources/images/icon/study.png" width="30"
 																	height="30">
 															</c:if>
 
 															<c:if test="${ma['addition'].hobby eq '여행' }">
-																<img src="/resources/images/hobby/trip.png" width="30"
+																<img src="/resources/images/icon/trip.png" width="30"
 																	height="30">
 															</c:if>
-
-															&nbsp; ${ma['member'].age } 세
-
+															
+															
+															<span data-toggle="modal"
+																data-target="#messageModal"
+																data-whatever="${ma['member'].username}"> 
+																<img
+																src="/resources/images/icon/message2.png" width="30"
+																height="30">
+															</span>
+															
+															<span data-toggle="modal"
+																data-target="#chatModal"
+																data-username="${ma['member'].username}">
+																<img src="/resources/images/icon/Chat-icon2.png"
+																width="30" height="30">
+															</span>
+															
+															
 														</div>
-
-														<div class="line2">
+														
+														<div class="line3">
 															<span class="comment">${ma['addition'].intro }</span>
 														</div>
-
-
-
 													</div>
 
 
@@ -299,11 +307,17 @@
 
 								</c:forEach>
 							</c:if>
+							
+							
+					
+					
+					
 
 
-						</div>
-					</div>
-				</div>
+
+			</div>
+			</div>
+			</div>
 			</div>
 
 
@@ -311,13 +325,10 @@
 
 	</c:choose>
 
-
-
-
-
-
-
-
+	<jsp:include page="../include/sendModal.jsp" />
+	<jsp:include page="../include/receiveModal.jsp" />
+	<jsp:include page="../include/joinModal.jsp" />
+	<jsp:include page="../include/loginModal.jsp" />
 
 
 	<jsp:include page="../include/footer.jsp" />
@@ -336,34 +347,104 @@
 	<script src="/resources/hydrogen/js/salvattore.min.js"></script>
 	<!-- Main JS -->
 	<script src="/resources/hydrogen/js/main.js"></script>
-
+	
+	
 	<script>
-		$('img.cardimage').each(function(index, item) {
+	
+	$('#message-text').on('keyup', function() {
 
-			var $img = $(item);
-			var num = $img.data('num');
-			console.log(num);
+       if($(this).val().length > 500) {
+           $(this).val($(this).val().substring(0, 500));
+        }
+    });
 
-			$.ajax({
-				url : '/popup',
-				data : {unum : num},
-				success : function(data) {
-					console.log(data);
-					$($img).magnificPopup({
-
-						items : data,
-						gallery : {
-							enabled : true
-						},
-						type : 'image'
-					});
-				}
-
-			});
-
+	
+	$('img.cardimage').each(function (index, item) {
+		var $img = $(item);
+		var num = $img.data('num');
+		console.log(num);
+		
+		$.ajax({
+			url: '/popup',
+			data: {unum: num},
+			success: function (data) {
+				console.log(data);
+				
+				$($img).magnificPopup({
+					items: data,
+					gallery: {
+					      enabled: true
+					},
+								
+					type:'image'
+				});	
+				
+			}
 		});
+		
+	});
+	
+	$('#messageModal').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var recipient = button.data('whatever') 
+		  var modal = $(this)
+		  modal.find('.modal-title').text('New message to ' + recipient)
+		  modal.find('.modal-body input#recipient-name').val(recipient)
+		  modal.find('.modal-body input#sendname').val("${name}")
+	});
+	
+	
+	$('#messageIcon').on('click', function(){
+		var username=$(this).data('name');
+		
+		$.ajax({
+			type:'POST',
+			url:'/member/getMessagesL',
+			data:{username:username},
+			dataType:'json',
+			success:function(data){
+				
+				$('#receiveTable > tbody').empty();
+				$('#receiveTable').append("<tr><th>보낸사람</th><th>메시지내용</th><th>보낸시간</th></tr>");
+				
+				$.each(data, function(index, item){
+										
+					/*
+					var t = new Date(item.regtime*1000);
+					console.log(t);
+					
+					var showtime = t.getFullYear();+"/"+
+								   t.getMonth();+1+"/"+
+								   t.getDate();+" "+
+								   t.getHours();+":"+
+								   t.getMinutes();+":"
+								   t.getSeconds();
+								   
+					console.log(showtime);
+					*/
+					
+					var t = new Date(item.regtime);
+					var tt = t.toLocaleString();
+												
+					
+					$('#receiveTable').append(
+							"<tr><td>"+item.sendname+
+							"</td><td>"+item.message+
+							"</td><td>"+tt+
+							"</td></tr>"
+					);			
+					
+					
+				});
+			}
+		});
+		
+		
+	});
+	
+	
+	
+	
 	</script>
-
-
 </body>
 </html>

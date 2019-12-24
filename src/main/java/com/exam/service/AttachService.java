@@ -24,8 +24,12 @@ public class AttachService {
 		return attachMapper.getAttaches(unum);
 	}
 	
-	public List<String> getAttachpic(int unum){
-		return attachMapper.getAttachpic(unum);
+	public List<String> getAttachPics(int unum){
+		return attachMapper.getAttachPics(unum);
+	}
+	
+	public String getMainAttach(int unum) {
+		return attachMapper.getMainAttach(unum);
 	}
 	
 	public void insertAttaches(List<AttachVO> attachList) {

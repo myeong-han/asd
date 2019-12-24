@@ -13,6 +13,7 @@
 			<h1 class="fh5co-logo">
 				<a class="navbar-brand" href="/">ASD For You</a>
 			</h1>
+			
 			<ul>
 				<li class="active"><a href="/">Home</a></li>
 				<li><a href="/member/join">Join</a></li>
@@ -24,10 +25,15 @@
 			<h1 class="fh5co-logo">
 				<a class="navbar-brand" href="/">${name}의 페이지 </a>
 			</h1>
+			
+				<img src="/resources/images/icon/message1.png" data-name="${name}" 
+				 data-toggle="modal" data-target="#getMessageModal"
+				 id="messageIcon" width="50" height="50">
+			
 			<ul>
 				<li class="active"><a href="/">Home</a></li>
 				<li><a href="/member/mypage?email=${email}">My Page</a></li>
-				<li><a href="/member/logout?email=${email}">Logout</a></li>
+				<li><a href="/member/logout">Logout</a></li>
 			</ul>
 
 		</c:otherwise>
@@ -36,10 +42,11 @@
 
 	<h3 class="fh5co-lead">Connect with us</h3>
 	<p class="fh5co-social-icons">
-		<a href="#"><i class="icon-twitter"></i></a> <a href="#"><i
-			class="icon-facebook"></i></a> <a href="#"><i class="icon-instagram"></i></a>
-		<a href="#"><i class="icon-dribbble"></i></a> <a href="#"><i
-			class="icon-youtube"></i></a>
+		<a href="#"><i class="icon-twitter"></i></a> 
+		<a href="#"><i class="icon-facebook"></i></a> 
+		<a href="#"><i class="icon-instagram"></i></a>
+		<a href="#"><i class="icon-dribbble"></i></a> 
+		<a href="#"><i class="icon-youtube"></i></a>
 	</p>
 
 </div>
