@@ -43,20 +43,4 @@ public interface MemberMapper {
 	@Delete("DELETE FROM members WHERE email = #{email}")
 	public void deleteMemberByEmail(String email);
 	
-	// 메세지 보내기
-	public int insertMessage(MessageVO messageVO);
-	
-	// 전체 메세지 받아오기
-	@Select("SELECT * FROM messages WHERE username = #{username} ORDER BY regtime DESC")
-	public List<MessageVO> getMessagesByName(String username);
-	
-	// 안 읽은 메세지 받아오기
-	@Select("SELECT * FROM messages WHERE username = #{username} AND readthis = 'x' ORDER BY regtime DESC")
-	public List<MessageVO> getUnreadMessages(String username);
-	
-	// 카운트 메서드 (안읽은 메시지)
-	
-	
-	
-	
 }

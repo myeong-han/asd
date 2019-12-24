@@ -143,7 +143,7 @@
 			// 마커를 표시할 위치와 content 객체 배열입니다 
 			var positions = [
 				{
-					content : '<div>내 위치</div>',
+					content : '<div><img src="/resources/upload/${myPic}" width="100" height="100"><span>나</span></div>',
 					latlng : new kakao.maps.LatLng(latitud, longitude)
 				},
 				
@@ -159,14 +159,12 @@
 				});
 				
 				latLngService.getList({unum:unum}, function(list) {
-					var i = 0
 					for (var item of list) {
 						console.log('typeof item.lat : ' + typeof item.lat);
 						console.log(item.lat + ' : ' + item.lng);
 						
-						i++;
 						positions.push({
-							content : '<div>near'+i+'</div>',
+							content : '<div><img src="/resources/upload/${myPic}" width="100" height="100"><span>나</span></div>',
 							latlng : new kakao.maps.LatLng(item.lat, item.lng)
 						});
 					}

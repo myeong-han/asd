@@ -202,108 +202,95 @@
 
 							<c:if test="${not empty maList}">
 
-								<c:forEach var="ma" items="${maList}">
-
+								<c:forEach var="ma" items="${maList}" varStatus="status">
+									<c:choose>
+									<c:when test="${not empty ma['addition'].intro }"><%-- 자기소개 쓴 사람 --%>
+									
+									
 									<div class="item">
+										
 										<div class="animate-box">
 
 											<c:choose>
-												<c:when test="${empty ma['addition'].mpic }">
-													<a href="/resources/hydrogen/images/img_1.jpg"
-														class="image-popup fh5co-board-img"
-														title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
-														<img src="/resources/hydrogen/images/img_1.jpg"
-														alt="회원사진이 등록 되지 않았습니다.">
-													</a>
-												</c:when>
-												<c:otherwise>
+												<c:when test="${not empty ma['addition'].mpic }"> <%-- 메인이미지 있는 사람 --%>
 													<img class="cardimage" data-num="${ma['member'].unum }" 
 													src="/resources/upload/${ma['addition'].mpic }">
-												</c:otherwise>
-											</c:choose>
-
-											<c:choose>
-												<c:when test="${empty ma['addition'].intro }">
-													<div class="fh5co-desc">자기소개가 아직 작성되지 않았습니다.</div>
 												</c:when>
-												<c:otherwise>
-
-													<div class="intro">
-														<div class="line1">
-															${ma['member'].username} &nbsp;
-															
-															${ma['member'].age }세  &nbsp;
-															
-															${ma['member'].local }
-														</div>
-
-														<div class="line2">
-															<c:if test="${ma['member'].gender eq '남' }">
-																<img src="/resources/images/icon/man.png"
-																	width="30" height="30">
-															</c:if>
-															<c:if test="${ma['member'].gender eq '여' }">
-																<img src="/resources/images/icon/woman.png"
-																	width="30" height="30">
-															</c:if>
-
-															<!-- hobby -->
-															<c:if test="${ma['addition'].hobby eq '술' }">
-																<img src="/resources/images/icon/drink.png" width="30"
-																	height="30">
-															</c:if>
-
-															<c:if test="${ma['addition'].hobby eq '음식' }">
-																<img src="/resources/images/icon/food.png" width="30"
-																	height="30">
-															</c:if>
-
-															<c:if test="${ma['addition'].hobby eq '운동' }">
-																<img src="/resources/images/icon/health.png" width="30"
-																	height="30">
-															</c:if>
-
-															<c:if test="${ma['addition'].hobby eq '공부' }">
-																<img src="/resources/images/icon/study.png" width="30"
-																	height="30">
-															</c:if>
-
-															<c:if test="${ma['addition'].hobby eq '여행' }">
-																<img src="/resources/images/icon/trip.png" width="30"
-																	height="30">
-															</c:if>
-															
-															
-															<span data-toggle="modal"
-																data-target="#messageModal"
-																data-whatever="${ma['member'].username}"> 
-																<img
-																src="/resources/images/icon/message2.png" width="30"
-																height="30">
-															</span>
-															
-															<span data-toggle="modal"
-																data-target="#chatModal"
-																data-username="${ma['member'].username}">
-																<img src="/resources/images/icon/Chat-icon2.png"
-																width="30" height="30">
-															</span>
-															
-															
-														</div>
-														
-														<div class="line3">
-															<span class="comment">${ma['addition'].intro }</span>
-														</div>
-													</div>
-
-
-												</c:otherwise>
-
 											</c:choose>
+
+											<div class="intro">
+												<div class="line1">
+													${ma['member'].username} &nbsp;
+													
+													${ma['member'].age }세  &nbsp;
+													
+													${ma['member'].local }
+												</div>
+
+												<div class="line2">
+													<c:if test="${ma['member'].gender eq '남' }">
+														<img src="/resources/images/icon/man.png"
+															width="30" height="30">
+													</c:if>
+													<c:if test="${ma['member'].gender eq '여' }">
+														<img src="/resources/images/icon/woman.png"
+															width="30" height="30">
+													</c:if>
+
+													<!-- hobby -->
+													<c:if test="${ma['addition'].hobby eq '술' }">
+														<img src="/resources/images/icon/drink.png" width="30"
+															height="30">
+													</c:if>
+
+													<c:if test="${ma['addition'].hobby eq '음식' }">
+														<img src="/resources/images/icon/food.png" width="30"
+															height="30">
+													</c:if>
+
+													<c:if test="${ma['addition'].hobby eq '운동' }">
+														<img src="/resources/images/icon/health.png" width="30"
+															height="30">
+													</c:if>
+
+													<c:if test="${ma['addition'].hobby eq '공부' }">
+														<img src="/resources/images/icon/study.png" width="30"
+															height="30">
+													</c:if>
+
+													<c:if test="${ma['addition'].hobby eq '여행' }">
+														<img src="/resources/images/icon/trip.png" width="30"
+															height="30">
+													</c:if>
+													
+													
+													<span data-toggle="modal"
+														data-target="#messageModal"
+														data-whatever="${ma['member'].username}"> 
+														<img src="/resources/images/icon/t_mail.png" class="mail-btn" width="30" height="30">
+													</span>
+													
+													<span data-toggle="modal"
+														data-target="#chatModal"
+														data-username="${ma['member'].username}">
+														<img src="/resources/images/icon/t_chat.png" class="chat-btn" width="30" height="30">
+													</span>
+													
+													
+												</div>
+												
+												<div class="line3">
+													<span class="comment">${ma['addition'].intro }</span>
+												</div>
+											</div>
 
 										</div>
+
 									</div>
+									
+									
+									</c:when><%-- 자기소개 쓴 사람 --%>
+									</c:choose>
 
 								</c:forEach>
 							</c:if>
@@ -350,7 +337,34 @@
 	
 	
 	<script>
+	// 이미지 마우스 오버&아웃 이벤트
+	var imgloc = '/resources/images/icon/';
 	
+	// 메일버튼 :
+	$('.mail-btn').mouseover(function () {
+		$(this).each(function() {
+			$(this).attr('src', imgloc+'t_mail2.png');
+		});
+	}).mouseout(function () {
+		$(this).each(function() {
+			$(this).attr('src', imgloc+'t_mail.png');
+		});
+	});
+	// 채팅버튼 :
+	$('.chat-btn').mouseover(function () {
+		$(this).each(function() {
+			$(this).attr('src', imgloc+'t_chat2.png');
+		});
+	}).mouseout(function () {
+		$(this).each(function() {
+			$(this).attr('src', imgloc+'t_chat.png');
+		});
+	});
+	</script>
+	
+	
+	
+	<script>
 	$('#message-text').on('keyup', function() {
 
        if($(this).val().length > 500) {
@@ -408,20 +422,6 @@
 				$('#receiveTable').append("<tr><th>보낸사람</th><th>메시지내용</th><th>보낸시간</th></tr>");
 				
 				$.each(data, function(index, item){
-										
-					/*
-					var t = new Date(item.regtime*1000);
-					console.log(t);
-					
-					var showtime = t.getFullYear();+"/"+
-								   t.getMonth();+1+"/"+
-								   t.getDate();+" "+
-								   t.getHours();+":"+
-								   t.getMinutes();+":"
-								   t.getSeconds();
-								   
-					console.log(showtime);
-					*/
 					
 					var t = new Date(item.regtime);
 					var tt = t.toLocaleString();

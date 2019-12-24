@@ -16,9 +16,13 @@
 					<button onclick="location.href='/member/logout';" class="btn btn-danger btn-sm pull-left">LOGOUT</button>
 				</c:otherwise>
 				</c:choose>
-				
-				<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu 
-				<i class="icon-menu"></i></a> <a class="navbar-brand" href="/">A SHIP DA</a>
+				<c:choose>
+				<c:when test="${not empty email}">
+				<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu
+				<i class="icon-menu"></i></a>
+				</c:when> 
+				</c:choose>
+				<a class="navbar-brand" href="/">A SHIP DA</a>
 			</div>
 		</div>
 	</div>

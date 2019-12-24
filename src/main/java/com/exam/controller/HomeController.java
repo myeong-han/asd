@@ -30,16 +30,20 @@ public class HomeController {
 		List<Map<String,Object>>memAddList = new ArrayList<Map<String,Object>>();
 
 		if (memberService.countMemberAll() > 0) {
-			while (memAddList.size()<20) {
+			while (memAddList.size()<200) {
+				Map<String,Object> map = new HashMap<String, Object>();
+				
 				int rand = (int)(Math.random()*memberService.countMemberByClient())+1;
 				rand += 10000; // 10001~회원갯수 중 랜덤
 
-				MemberVO vo = memberService.getMemberByUnum(rand);
-				Map<String,Object> map = new HashMap<String, Object>();
+				MemberVO mvo = memberService.getMemberByUnum(rand);
+				AdditionalVO avo = memberService.getAddtionByUnum(mvo.getUnum());
 				
-				map.put("member", vo);
-				map.put("addition", memberService.getAddtionByUnum(vo.getUnum()));
-				memAddList.add(map);
+				if (memberService.isAdditionExist(rand)) {
+					map.put("member", mvo);
+					map.put("addition", avo);
+					memAddList.add(map);
+				}
 			}
 		} else {
 			memAddList = null;

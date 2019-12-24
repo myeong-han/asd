@@ -20,9 +20,4 @@
 		SET passwd=#{passwd}, username=#{username}, local=#{local}
 		WHERE email=#{email}
 	</update>
-	
-	<insert id="insertMessage" parameterType="MessageVO">
-		INSERT INTO messages (sendname, username, message, regtime, readthis )
-		VALUES ( #{sendname}, #{username}, #{message}, current_timestamp, "x")
-	</insert>
 </mapper>

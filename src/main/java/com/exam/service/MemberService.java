@@ -18,6 +18,7 @@ import com.exam.mapper.AdditionalMapper;
 import com.exam.mapper.AttachMapper;
 import com.exam.mapper.LatLngMapper;
 import com.exam.mapper.MemberMapper;
+import com.exam.mapper.MessageMapper;
 
 @Service
 @Transactional
@@ -29,6 +30,8 @@ public class MemberService {
 	private AdditionalMapper additionalMapper;
 	@Autowired
 	private LatLngMapper latLngMapper; 
+	@Autowired
+	private MessageMapper messageMapper; 
 	
 	// 회원정보 삽입
 	public int insertMember(MemberVO memberVO) {
@@ -157,12 +160,19 @@ public class MemberService {
 	}
 	
 	public int insertMessage(MessageVO messageVO) {
-		return memberMapper.insertMessage(messageVO);
+		return messageMapper.insertMessage(messageVO);
 	}
 	
 	public List<MessageVO> getMessages(String username) {
-		return memberMapper.getMessagesByName(username);
+		return messageMapper.getMessagesByName(username);
 	}
 	
+	public boolean isMessageExist() {
+		return 0 < messageMapper.countMessages();
+	}
+	
+	public int getMaxMessage() {
+		return messageMapper.getMaxMessage();
+	}
 	
 }

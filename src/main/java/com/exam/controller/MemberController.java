@@ -189,6 +189,10 @@ public class MemberController {
 	
 	@GetMapping("mypage")
 	public String mypage(String email, Model model) {
+		int myUnum = memberService.getMemberByEmail(email).getUnum();
+		String myPic = memberService.getAddtionByUnum(myUnum).getMpic();
+		
+		model.addAttribute("myPic", myPic);
 		return "member/mypage";
 	}
 	
@@ -296,36 +300,6 @@ public class MemberController {
 		return "member/mypage";
 	}
 	
-	@PostMapping(value = "latLng", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
-	@ResponseBody
-	public ResponseEntity<String> latLng(
-			@RequestParam("lat")double lat,
-			@RequestParam("lng")double lng,
-			String email) {
-		int unum = memberService.getMemberByEmail(email).getUnum();
-		LatLngVO latLngVO = new LatLngVO();
-		latLngVO.setLat(lat);
-		latLngVO.setLng(lng);
-		latLngVO.setUnum(unum);
-		
-		int count = 0;
-		if (memberService.isLatLngExist(unum)) {
-			count = memberService.updateLatLng(latLngVO);
-		} else {
-			count = memberService.insertLatLng(latLngVO);
-		}
-		
-		ResponseEntity<String> entity = null;
-		if (count > 0) {
-			entity = new ResponseEntity<String>("success", HttpStatus.OK);
-		} else {
-			entity = new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-		
-		return entity;
-	}
-	
-	
 	private boolean isImageType(File file) throws Exception {
 		boolean isImageType=false;
 		
@@ -344,10 +318,14 @@ public class MemberController {
 	@PostMapping("message")
 	public ResponseEntity<String> sendMessage(MessageVO messageVO) {
 		
+		messageVO.setMessageId(1);
+		if (memberService.isMessageExist()) {
+			messageVO.setMessageId(memberService.getMaxMessage()+1);
+		}
 		int check=memberService.insertMessage(messageVO);
 		
 		String message = "";
-				
+		
 		if (check == 0) {
 			message = "메세지 전송에 실패했습니다.";
 		} else  {
@@ -399,8 +377,5 @@ public class MemberController {
 			return "member/mypage";
 		}
 		
-		
 	}
-	
-
 }

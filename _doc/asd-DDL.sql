@@ -64,6 +64,19 @@ UNUM INT NOT NULL
 );
 
 --------------------------------------------------------
+--  DDL for Table lat_Lng
+--------------------------------------------------------
+
+create table messages(
+  message_id int,
+	sendname VARCHAR(20),
+  message varchar(600),
+  write_date timestamp,
+  readthis varchar(20),
+  username varchar(20)
+);
+
+--------------------------------------------------------
 --  DDL for Index
 --------------------------------------------------------
 
@@ -72,6 +85,7 @@ CREATE UNIQUE INDEX MEMBERS_UK ON MEMBERS (UNUM);
 CREATE UNIQUE INDEX ADDITIONAL_PK ON ADDITIONAL (UNUM);
 CREATE UNIQUE INDEX LAT_LNG_PK ON LAT_LNG (UNUM);
 CREATE UNIQUE INDEX ATTACHS_PK ON ATTACHS (UUID);
+CREATE UNIQUE INDEX MESSAGES_PK ON MESSAGES (message_id);
 
 --------------------------------------------------------
 --  Constraints
@@ -85,3 +99,4 @@ ALTER TABLE LAT_LNG ADD CONSTRAINT LAT_LNG_FK FOREIGN KEY (UNUM) REFERENCES MEMB
 
 ALTER TABLE ATTACHS ADD CONSTRAINT ATTACHS_PK PRIMARY KEY (UUID);
 ALTER TABLE ATTACHS ADD CONSTRAINT ATTACHS_FK FOREIGN KEY (UNUM) REFERENCES MEMBERS (UNUM);
+ALTER TABLE MESSAGES ADD CONSTRAINT MESSAGES_PK PRIMARY KEY (message_id);
