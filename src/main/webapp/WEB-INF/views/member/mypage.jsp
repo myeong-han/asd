@@ -51,6 +51,8 @@
 <link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 <!-- Main Style -->
 <link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=5">
+<!-- Main Style -->
+<link rel="stylesheet" href="/resources/css/main.css">
 
 
 
@@ -76,8 +78,10 @@
 					<h2>Personal Bio</h2>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 
-					<div id="map" style="width: 800px; height: 400px;"></div>
-
+					<div id="map" style="width: 740px; height: 400px;"></div>
+					<span id="result">반경 2km</span>
+					<input type="range" name="rng" id="rng" min="1" max="10" step="0.5" value="2" style="width: 740px;"/>
+					
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					
 					<input type="button" value="이미지 업로드" class="btn btn-info col-md-offset-4 col-md-4"
@@ -116,15 +120,14 @@
 	<script src="/resources/script/latLng.js"></script>
 	<script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", getPositions);
-	
 	var email = '${email}';
 	console.log('email: '+email);
-
+	
 	function getPositions() {
 		
 		// 현재 위치값을 가진 지도 표시 함수(최대 2명 추가)
 		function getLocation(position) {
-		
+			
 			var latitud = position.coords.latitude;
 			var longitude = position.coords.longitude;
 			console.log('현재사용자 위치 - ' + latitud + ' : ' + longitude);
@@ -133,7 +136,7 @@
 			var mapOption = {
 				center : new kakao.maps.LatLng(latitud,
 				      longitude), // 지도의 중심좌표
-				level : 5
+				level : 6
 				// 지도의 확대레벨
 			}
 		
@@ -143,13 +146,12 @@
 			// 마커를 표시할 위치와 content 객체 배열입니다 
 			var positions = [
 				{
-					content : '<div><img src="/resources/upload/${myPic}" width="100" height="100"><span>나</span></div>',
+					content : '<div class="iwin"><img src="/resources/upload/${myPic}" width="100" height="100"><hr /><span>나</span></div>',
 					latlng : new kakao.maps.LatLng(latitud, longitude)
-				},
-				
+				}
 			];
 			
-// 			// REST START
+			// OPEN_REST START
 			var instance = [];
 			latLngService.unum(email, function(unum) {
 				var currentPos = {lat:latitud, lng:longitude, unum:unum};
@@ -158,15 +160,25 @@
 					console.log('dbInsert: '+currentPos);
 				});
 				
+				var listCount = 0;
 				latLngService.getList({unum:unum}, function(list) {
-					for (var item of list) {
-						console.log('typeof item.lat : ' + typeof item.lat);
-						console.log(item.lat + ' : ' + item.lng);
+					for (var map of list) {
+						listCount++;
 						
-						positions.push({
-							content : '<div><img src="/resources/upload/${myPic}" width="100" height="100"><span>나</span></div>',
-							latlng : new kakao.maps.LatLng(item.lat, item.lng)
-						});
+						console.log('mpic: '+typeof(map['mpic']));
+						console.log('latLng: '+typeof(map['latLng']));
+						
+						if (map['mpic'].length == 0){
+							positions.push({
+								content : '<div class="iwin"><span>이미지가 없습니다.</span><hr />거리: '+map['distance']+'M<hr /><span>'+map['member'].username+'</span></div>',
+								latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
+							});
+						} else {
+							positions.push({
+								content : '<div class="iwin"><img src="/resources/upload/'+map['mpic']+'" width="100" height="100"><hr />거리: '+map['distance']+'M<hr /><span>'+map['member'].username+'</span></div>',
+								latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
+							});
+						}
 					}
 					console.log('getList: '+positions);
 					
@@ -176,73 +188,99 @@
 					
 				});
 			});
-// 			// REST END
+			// OPEN_REST END
 			   
-		function showMarkers() {
-			// 마커 이미지의 이미지 주소입니다
-			var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-			
-			
-			// positions에 저장된 위치값 기반으로 마커를 생성하는 반복문
-			for (var i = 0; i < positions.length; i++) {
-			
-				// 마커 이미지의 이미지 크기 입니다
-				var imageSize = new kakao.maps.Size(24, 35);
-			
-				// 마커 이미지를 생성합니다    
-				var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-			
-				// 마커를 생성합니다
-				var marker = new kakao.maps.Marker({
-					map : map, // 마커를 표시할 지도
-					position : positions[i].latlng, // 마커를 표시할 위치
-					image : markerImage
-					// 마커 이미지 
-				});
+			function showMarkers() {
+				// 마커 이미지의 이미지 주소입니다
+				var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 				
-				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-				var iwContent = positions[i].content;
 				
-				// 인포윈도우를 생성합니다
-				var infowindow = new kakao.maps.InfoWindow({
-					content : iwContent,
+				// positions에 저장된 위치값 기반으로 마커를 생성하는 반복문
+				for (var i = 0; i < positions.length; i++) {
+				
+					// 마커 이미지의 이미지 크기 입니다
+					var imageSize = new kakao.maps.Size(24, 35);
+				
+					// 마커 이미지를 생성합니다    
+					var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+				
+					// 마커를 생성합니다
+					var marker = new kakao.maps.Marker({
+						map : map, // 마커를 표시할 지도
+						position : positions[i].latlng, // 마커를 표시할 위치
+						image : markerImage
+						// 마커 이미지 
+					});
+					
+					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+					var iwContent = positions[i].content;
+					
+					// 인포윈도우를 생성합니다
+					var infowindow = new kakao.maps.InfoWindow({
+						content : iwContent,
+					});
+				
+					// 마커에 클릭이벤트를 등록합니다
+					kakao.maps.event.addListener(marker, 'mouseover',
+						function(infowindow, marker) {
+							return function() {
+								infowindow.open(map, marker);
+							}
+						}(infowindow, marker)
+					);
+					kakao.maps.event.addListener(marker, 'mouseout',
+						function(infowindow, marker) {
+							return function() {
+								infowindow.close();
+							}
+						}(infowindow, marker)
+					);
+				} // for
+				
+				makeCircle(latitud, longitude, 2, map);
+				
+			} // showMarkers
+			
+			var rng = $("#rng");
+			rng.change(function(){
+//					circle.setMap(null); // 원래 이걸로 기존 서클 지우는데 제이쿼리 안에선 안먹힘..
+				$("ellipse").attr('style', '');
+				
+		 		$("#result").text('반경 '+rng.val()+'km');
+				console.log('event: '+rng.val());
+				
+				// EVENT_REST START
+				latLngService.setRng({rng:rng.val()}, function(result) {
+					console.log('rngInsert: '+rng.val());
 				});
-			
-				// 마커에 클릭이벤트를 등록합니다
-				kakao.maps.event.addListener(marker, 'mouseover',
-					function(infowindow, marker) {
-						return function() {
-							infowindow.open(map, marker);
+				latLngService.unum(email, function(unum) {
+					latLngService.getList({unum:unum}, function(list) {
+						for (var map of list) {
+							listCount++;
+							
+							console.log('mpic: '+typeof(map['mpic']));
+							console.log('latLng: '+typeof(map['latLng']));
+							
+							if (map['mpic'].length == 0){
+								positions.push({
+									content : '<div class="iwin"><span>이미지가 없습니다.</span><hr />거리: '+map['distance']+'M<hr /><span>'+map['member'].username+'</span></div>',
+									latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
+								});
+							} else {
+								positions.push({
+									content : '<div class="iwin"><img src="/resources/upload/'+map['mpic']+'" width="100" height="100"><hr />거리: '+map['distance']+'M<hr /><span>'+map['member'].username+'</span></div>',
+									latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
+								});
+							}
 						}
-					}(infowindow, marker)
-				);
-				kakao.maps.event.addListener(marker, 'mouseout',
-					function(infowindow, marker) {
-						return function() {
-							infowindow.close();
-						}
-					}(infowindow, marker)
-				);
-			} // for
-			
-			// 지도에 표시할 원을 생성합니다
-			var circle = new kakao.maps.Circle({
-				center : new kakao.maps.LatLng(latitud, longitude), // 원의 중심좌표 입니다 
-				radius : 500, // 미터 단위의 원의 반지름입니다
-				strokeWeight : 1, // 선의 두께입니다
-				strokeColor : '#75B8FA', // 선의 색깔입니다
-				strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-				strokeStyle : 'solid', // 선의 스타일 입니다
-				fillColor : '#CFE7FD', // 채우기 색깔입니다
-				fillOpacity : 0.7
-				// 채우기 불투명도 입니다   
+						console.log('getList: '+positions);
+						showMarkers();
+					});
+				});
+				// EVENT_REST END
+				
+				makeCircle(latitud, longitude, rng.val(), map);
 			});
-			
-			// 지도에 원을 표시합니다 
-			circle.setMap(map);
-		} // showMarkers
-	
-	
 
 		} // getLocation
 		
@@ -257,6 +295,25 @@
 			console.log("Geolocation을 지원하지 않는 브라우저 입니다.");
 		}
 	} // getPositions
+	
+	
+	function makeCircle (latitud, longitude, val, map) {
+		// 지도에 표시할 원을 생성합니다
+		var circle = new kakao.maps.Circle({
+			center : new kakao.maps.LatLng(latitud, longitude), // 원의 중심좌표 입니다 
+			radius : val*1000, // 미터 단위의 원의 반지름입니다
+			strokeWeight : 1, // 선의 두께입니다
+			strokeColor : '#75B8FA', // 선의 색깔입니다
+			strokeOpacity : 0.5, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+			strokeStyle : 'solid', // 선의 스타일 입니다
+			fillColor : '#CFE7FD', // 채우기 색깔입니다
+			fillOpacity : 0.4
+			// 채우기 불투명도 입니다   
+		});
+		
+		// 지도에 원을 표시합니다 
+		circle.setMap(map);
+	}
 	</script>
 </body>
 </html>

@@ -58,7 +58,8 @@
 
 	<jsp:include page="../include/menu.jsp" />
 	<jsp:include page="../include/header.jsp" />
-
+	<!-- <button onclick="location.href='/member/test'">testMemberGenerate</button> -->
+	<!-- <button onclick="location.href='/latLng/test'">testLatLngGenerate</button> -->
 	<!-- END .header -->
 	<c:choose>
 		<c:when test="${empty email}">

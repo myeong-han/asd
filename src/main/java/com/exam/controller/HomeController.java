@@ -2,8 +2,10 @@ package com.exam.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -27,19 +29,35 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String home(HttpSession session) { 
+		int generateNum = 30;
+		
 		List<Map<String,Object>>memAddList = new ArrayList<Map<String,Object>>();
 
 		if (memberService.countMemberAll() > 0) {
-			while (memAddList.size()<200) {
+			
+			Set<Integer> unumSet = new HashSet<Integer>();
+			
+			// 랜덤 Unum 세팅
+			if (memberService.countMemberAll() >= generateNum) {
+				while (unumSet.size()<=generateNum) {
+					int rand = (int)(Math.random()*memberService.countMemberByClient())+1;
+					rand += 10000; // 10001~회원갯수 중 랜덤
+					unumSet.add(rand);
+				}
+			} else {
+				for (MemberVO memberVO : memberService.getMemberList()) {
+					unumSet.add(memberVO.getUnum());
+				}
+			}
+			
+			// set에 들은 unum 전부 제너레이트
+			for (Integer unum : unumSet) {
 				Map<String,Object> map = new HashMap<String, Object>();
 				
-				int rand = (int)(Math.random()*memberService.countMemberByClient())+1;
-				rand += 10000; // 10001~회원갯수 중 랜덤
-
-				MemberVO mvo = memberService.getMemberByUnum(rand);
+				MemberVO mvo = memberService.getMemberByUnum(unum);
 				AdditionalVO avo = memberService.getAddtionByUnum(mvo.getUnum());
 				
-				if (memberService.isAdditionExist(rand)) {
+				if (memberService.isAdditionExist(unum)) {
 					map.put("member", mvo);
 					map.put("addition", avo);
 					memAddList.add(map);

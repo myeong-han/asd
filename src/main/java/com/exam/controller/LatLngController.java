@@ -1,6 +1,9 @@
 package com.exam.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.exam.domain.AdditionalVO;
 import com.exam.domain.LatLngVO;
+import com.exam.domain.MemberVO;
+import com.exam.mapper.MemberMapper;
 import com.exam.service.MemberService;
 
 import lombok.extern.log4j.Log4j;
@@ -25,6 +31,8 @@ public class LatLngController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private LatLngVO latLngVO;
 	
 	@GetMapping(value = "getUnum/{email}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<Integer> unum(@PathVariable("email") String email) {
@@ -57,11 +65,71 @@ public class LatLngController {
 		return entity;
 	}
 	
-	@GetMapping(value = "getList/{unum}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<List<LatLngVO>> getList(@PathVariable("unum") int unum) {
-		log.info("unum: "+unum);
-		List<LatLngVO> latLngList = memberService.getLatLngAll(unum);
-		log.info("GET latLngList: "+latLngList);
-		return new ResponseEntity<List<LatLngVO>>(latLngList, HttpStatus.OK);
+	@PostMapping(value = "range", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> postRange(@RequestBody double rng) {
+		log.info("setRng: "+rng);
+		latLngVO.setRng(rng);
+		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
+//	@GetMapping(value = "range", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+//	public ResponseEntity<Integer> getRange() {
+//		if (latLngVO.getRng() == null) {
+//			latLngVO.setRng(2);
+//		}
+//		return new ResponseEntity<Integer>(latLngVO.getRng(), HttpStatus.OK);
+//	}
+	
+	@GetMapping(value = "getList/{unum}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<List<Map<String,Object>>> getList(@PathVariable("unum") int unum) {
+		log.info("unum: "+unum);
+		log.info("getRng: "+latLngVO.getRng());
+		if (latLngVO.getRng() == null) {
+			latLngVO.setRng(2.0);
+		}
+		LatLngVO myLatLng = memberService.getLatLng(unum);
+		List<LatLngVO> latLngList = memberService.getNearLatLng(myLatLng, latLngVO.getRng());
+		
+		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+		
+		for (LatLngVO latLngVO :latLngList) {
+			int distance = (int)(latLngVO.getDistance()*10);
+			
+			Map<String,Object> map = new HashMap<String, Object>();
+			MemberVO memberVO = memberService.getMemberByUnum(latLngVO.getUnum());
+			AdditionalVO additionalVO = memberService.getAddtionByUnum(latLngVO.getUnum());
+			String mpic = "";
+			if (additionalVO != null) {
+				mpic = additionalVO.getMpic();
+			}
+			map.put("latLng", latLngVO);
+			map.put("member", memberVO);
+			map.put("mpic", mpic);
+			map.put("distance", distance);
+			
+			list.add(map);
+			
+			if (list.size()==20) {
+				break;
+			}
+		}
+		
+		log.info("GET latLngList: "+latLngList);
+		return new ResponseEntity<List<Map<String,Object>>>(list, HttpStatus.OK);
+	}
+
+//	@GetMapping("test")
+//	public String insertTest() {
+//		int j = 0;
+//		
+//		for (int i = 10007; i<11000; i++) {
+//			double lat = Math.random()*2+35;
+//			double lng = Math.random()*2+128;
+//			LatLngVO latLngVO = new LatLngVO();
+//			latLngVO.setLat(lat);
+//			latLngVO.setLng(lng);
+//			latLngVO.setUnum(i);
+//			memberService.insertLatLng(latLngVO);
+//		}
+//		return null;
+//	}
 }

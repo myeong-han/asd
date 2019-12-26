@@ -155,6 +155,14 @@ public class MemberService {
 		return latLngMapper.getLatLngAll(unum);
 	}
 	
+	public List<LatLngVO> getNearLatLng(LatLngVO latLngVO, double rng) {
+		return latLngMapper.getNearLatLng(latLngVO.getLat(),latLngVO.getLng(),latLngVO.getUnum(), rng);
+	}
+	
+	public LatLngVO getLatLng (int unum) {
+		return latLngMapper.getLatLng(unum);
+	}
+	
 	public int deleteLatLngByUnum (int unum) {
 		return latLngMapper.deleteLatLngByUnum(unum);
 	}
@@ -174,5 +182,4 @@ public class MemberService {
 	public int getMaxMessage() {
 		return messageMapper.getMaxMessage();
 	}
-	
 }

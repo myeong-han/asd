@@ -82,10 +82,33 @@ var latLngService = (function () {
 		});
 	}
 	
+	function setRng(param, callback, error) {
+		console.log('add rng...');
+		var rng = param.rng;
+		
+		$.ajax({
+			type: 'post',
+			url: '/latLng/range',
+			data: JSON.stringify(rng),
+			contentType: 'application/json; charset=utf-8',
+			success: function (result, status, xhr) {
+				if (callback) {
+					callback(result);
+				}
+			},
+			error: function (xhr, status, err) {
+				if (error) {
+					error(err);
+				}
+			}
+		});
+	}
+	
 	return {
 		add: add,
 		unum: unum,
 		remove: remove,
-		getList: getList
+		getList: getList,
+		setRng: setRng
 	}
 })(); // latLngService

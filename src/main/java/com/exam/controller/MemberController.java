@@ -378,4 +378,24 @@ public class MemberController {
 		}
 		
 	}
+
+//	@GetMapping("test")
+//	public String insertTest() {
+//		int j = 0;
+//		for (int i = 10007; i<11000; i++) {
+//			j++;
+//			MemberVO memberVO = new MemberVO();
+//			memberVO.setAge(27);
+//			memberVO.setEmail("a"+i+"@gmail.com");
+//			memberVO.setGender("남");
+//			memberVO.setLocal("부산");
+//			memberVO.setPasswd("1234");
+//			memberVO.setResidentIdB("1");
+//			memberVO.setResidentIdF("931001");
+//			memberVO.setUnum(i);
+//			memberVO.setUsername("test"+j);
+//			memberService.insertMember(memberVO);
+//		}
+//		return null;
+//	}
 }
