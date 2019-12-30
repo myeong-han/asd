@@ -56,7 +56,7 @@
 <!-- Theme Style -->
 <link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/css/main.css?ver=1">
+<link rel="stylesheet" href="/resources/css/main.css?ver=2">
 
 <!-- Modernizr JS -->
 <script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
