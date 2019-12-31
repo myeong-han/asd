@@ -25,6 +25,9 @@ public interface AdditionalMapper {
 	@Select("SELECT * FROM additional")
 	public List<AdditionalVO> getAdditionAll();
 	
+	@Select("SELECT COUNT(*) FROM additional")
+	public int countAddition();
+	
 	@Select("SELECT COUNT(*) FROM additional WHERE unum=#{unum}")
 	public int countAdditionByUnum(int unum);
 	

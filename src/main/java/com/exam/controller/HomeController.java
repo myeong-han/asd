@@ -3,9 +3,11 @@ package com.exam.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,7 +21,10 @@ import com.exam.domain.MemberVO;
 import com.exam.service.AttachService;
 import com.exam.service.MemberService;
 
+import lombok.extern.log4j.Log4j;
+
 @Controller
+@Log4j
 public class HomeController {
 	
 	@Autowired
@@ -29,20 +34,24 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String home(HttpSession session) { 
-		int generateNum = 30;
+		int generateNum = memberService.countAddition()-1;
+		log.info("countAddition: "+generateNum);
 		
 		List<Map<String,Object>>memAddList = new ArrayList<Map<String,Object>>();
 
 		if (memberService.countMemberAll() > 0) {
 			
-			Set<Integer> unumSet = new HashSet<Integer>();
+			Set<Integer> unumSet = new LinkedHashSet<Integer>();
 			
 			// 랜덤 Unum 세팅
 			if (memberService.countMemberAll() >= generateNum) {
 				while (unumSet.size()<=generateNum) {
 					int rand = (int)(Math.random()*memberService.countMemberByClient())+1;
 					rand += 10000; // 10001~회원갯수 중 랜덤
-					unumSet.add(rand);
+					
+					if (memberService.isAdditionExist(rand)) {
+						unumSet.add(rand);
+					}
 				}
 			} else {
 				for (MemberVO memberVO : memberService.getMemberList()) {
@@ -57,11 +66,9 @@ public class HomeController {
 				MemberVO mvo = memberService.getMemberByUnum(unum);
 				AdditionalVO avo = memberService.getAddtionByUnum(mvo.getUnum());
 				
-				if (memberService.isAdditionExist(unum)) {
-					map.put("member", mvo);
-					map.put("addition", avo);
-					memAddList.add(map);
-				}
+				map.put("member", mvo);
+				map.put("addition", avo);
+				memAddList.add(map);
 			}
 		} else {
 			memAddList = null;

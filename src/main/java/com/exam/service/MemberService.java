@@ -135,6 +135,10 @@ public class MemberService {
 		return additionalMapper.countAdditionByUnum(unum)!=0;
 	}
 	
+	public int countAddition() {
+		return additionalMapper.countAddition();
+	}
+	
 	public int insertLatLng(LatLngVO latLngVO) {
 		return latLngMapper.insertLatLng(latLngVO);
 	}

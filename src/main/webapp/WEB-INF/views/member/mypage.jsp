@@ -80,8 +80,7 @@
 
 					<div id="map" style="width: 740px; height: 400px;"></div>
 					<span id="result">반경 2km</span>
-					<input type="range" name="rng" id="rng" min="1" max="10" step="0.5" value="2" style="width: 740px;"/>
-					
+					<input type="range" name="rng" id="rng" min="1" max="10" step="0.1" value="2" style="width: 740px;"/>
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
 					
 					<input type="button" value="이미지 업로드" class="btn btn-info col-md-offset-4 col-md-4"
@@ -143,6 +142,8 @@
 			// 지도를 생성
 			var map = new daum.maps.Map(mapContainer, mapOption);
 			
+			makeCircle(latitud, longitude, 2, map);
+			
 			// 마커를 표시할 위치와 content 객체 배열입니다 
 			var positions = [
 				{
@@ -170,12 +171,12 @@
 						
 						if (map['mpic'].length == 0){
 							positions.push({
-								content : '<div class="iwin"><span>이미지가 없습니다.</span><hr />거리: '+map['distance']+'M<hr /><span>'+map['member'].username+'</span></div>',
+								content : '<div class="iwin"><span>이미지가 없습니다.</span><hr />거리: '+map['distance']+'00M<hr /><span>'+map['member'].username+'</span></div>',
 								latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
 							});
 						} else {
 							positions.push({
-								content : '<div class="iwin"><img src="/resources/upload/'+map['mpic']+'" width="100" height="100"><hr />거리: '+map['distance']+'M<hr /><span>'+map['member'].username+'</span></div>',
+								content : '<div class="iwin"><img src="/resources/upload/'+map['mpic']+'" width="100" height="100"><hr />거리: '+map['distance']+'00M<hr /><span>'+map['member'].username+'</span></div>',
 								latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
 							});
 						}
@@ -184,7 +185,6 @@
 					
 					
 					showMarkers();
-					
 					
 				});
 			});
@@ -237,14 +237,13 @@
 					);
 				} // for
 				
-				makeCircle(latitud, longitude, 2, map);
-				
 			} // showMarkers
 			
 			var rng = $("#rng");
 			rng.change(function(){
 //					circle.setMap(null); // 원래 이걸로 기존 서클 지우는데 제이쿼리 안에선 안먹힘..
 				$("ellipse").attr('style', '');
+				$("div#map").find("div").find("div").find("div").find("div").find("img").attr('style', '').attr('src','');
 				
 		 		$("#result").text('반경 '+rng.val()+'km');
 				console.log('event: '+rng.val());
@@ -252,29 +251,37 @@
 				// EVENT_REST START
 				latLngService.setRng({rng:rng.val()}, function(result) {
 					console.log('rngInsert: '+rng.val());
-				});
-				latLngService.unum(email, function(unum) {
-					latLngService.getList({unum:unum}, function(list) {
-						for (var map of list) {
-							listCount++;
-							
-							console.log('mpic: '+typeof(map['mpic']));
-							console.log('latLng: '+typeof(map['latLng']));
-							
-							if (map['mpic'].length == 0){
-								positions.push({
-									content : '<div class="iwin"><span>이미지가 없습니다.</span><hr />거리: '+map['distance']+'M<hr /><span>'+map['member'].username+'</span></div>',
-									latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
-								});
-							} else {
-								positions.push({
-									content : '<div class="iwin"><img src="/resources/upload/'+map['mpic']+'" width="100" height="100"><hr />거리: '+map['distance']+'M<hr /><span>'+map['member'].username+'</span></div>',
-									latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
-								});
-							}
+					
+					positions = [
+						{
+							content : '<div class="iwin"><img src="/resources/upload/${myPic}" width="100" height="100"><hr /><span>나</span></div>',
+							latlng : new kakao.maps.LatLng(latitud, longitude)
 						}
-						console.log('getList: '+positions);
-						showMarkers();
+					];
+					
+					latLngService.unum(email, function(unum) {
+						
+						latLngService.getList({unum:unum}, function(list) {
+							for (var map of list) {
+								
+								console.log('mpic: '+typeof(map['mpic']));
+								console.log('latLng: '+typeof(map['latLng']));
+								
+								if (map['mpic'].length == 0){
+									positions.push({
+										content : '<div class="iwin"><span>이미지가 없습니다.</span><hr />거리: '+map['distance']+'00M<hr /><span>'+map['member'].username+'</span></div>',
+										latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
+									});
+								} else {
+									positions.push({
+										content : '<div class="iwin"><img src="/resources/upload/'+map['mpic']+'" width="100" height="100"><hr />거리: '+map['distance']+'00M<hr /><span>'+map['member'].username+'</span></div>',
+										latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
+									});
+								}
+							}
+							console.log('getList: '+positions);
+							showMarkers();
+						});
 					});
 				});
 				// EVENT_REST END
