@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exam.mapper.MemberMapper">
+	<insert id="insertMember" parameterType="MemberVO">
+		INSERT INTO members (
+			email,unum,passwd,username,local,
+			resident_id,age,gender,recommended,reg_date
+		)
+		VALUES (
+			#{email},#{unum},#{passwd},#{username},#{local},
+			CONCAT(#{residentIdF},'-',#{residentIdB}),#{age},#{gender},0,current_date()
+		)
+	</insert>
+	
+	<update id="updateMember" parameterType="MemberVO">
+		UPDATE members
+		SET passwd=#{passwd}, username=#{username}, local=#{local}
+		WHERE email=#{email}
+	</update>
+	
+	<insert id="insertMessage" parameterType="MessageVO">
+		INSERT INTO messages (sendname, username, message, regtime, readthis )
+		VALUES ( #{sendname}, #{username}, #{message}, current_timestamp, "x")
+	</insert>
+</mapper>
