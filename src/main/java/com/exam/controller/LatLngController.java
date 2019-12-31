@@ -116,20 +116,4 @@ public class LatLngController {
 		log.info("GET latLngList: "+latLngList);
 		return new ResponseEntity<List<Map<String,Object>>>(list, HttpStatus.OK);
 	}
-
-//	@GetMapping("test")
-//	public String insertTest() {
-//		int j = 0;
-//		
-//		for (int i = 10007; i<11000; i++) {
-//			double lat = Math.random()*2+35;
-//			double lng = Math.random()*2+128;
-//			LatLngVO latLngVO = new LatLngVO();
-//			latLngVO.setLat(lat);
-//			latLngVO.setLng(lng);
-//			latLngVO.setUnum(i);
-//			memberService.insertLatLng(latLngVO);
-//		}
-//		return null;
-//	}
 }

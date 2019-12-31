@@ -378,9 +378,50 @@ public class MemberController {
 		}
 		
 	}
-
-//	@GetMapping("test")
-//	public String insertTest() {
+	
+	@GetMapping("testAddition")
+	public String insertTestAddition() {
+		
+		for (int i = 10007; i<11000; i++) {
+			int rand = (int)(Math.random()*5+1);
+			String hobby = "";
+			AdditionalVO additionalVO = new AdditionalVO();
+			switch(rand) {
+				case 0: hobby = "술"; break;
+				case 1: hobby = "음식"; break;
+				case 2: hobby = "운동"; break;
+				case 3: hobby = "공부"; break;
+				case 4: hobby = "여행"; break;
+			}
+			additionalVO.setHobby(hobby);
+			additionalVO.setIntro("안녕"+i*rand);
+			additionalVO.setUnum(i);
+			
+			memberService.insertAddition(additionalVO);
+			log.info("insert: "+additionalVO);
+		}
+		
+		return null;
+	}
+	
+//	@GetMapping("testLatLng")
+//	public String insertTestLatLng() {
+//		
+//		for (int i = 10007; i<11000; i++) {
+//			double lat = Math.random()*2+35;
+//			double lng = Math.random()*2+128;
+//			LatLngVO latLngVO = new LatLngVO();
+//			latLngVO.setLat(lat);
+//			latLngVO.setLng(lng);
+//			latLngVO.setUnum(i);
+//			memberService.insertLatLng(latLngVO);
+//			log.info("insert: "+latLngVO);
+//		}
+//		return null;
+//	}
+	
+//	@GetMapping("testMember")
+//	public String insertTestMember() {
 //		int j = 0;
 //		for (int i = 10007; i<11000; i++) {
 //			j++;
@@ -395,6 +436,7 @@ public class MemberController {
 //			memberVO.setUnum(i);
 //			memberVO.setUsername("test"+j);
 //			memberService.insertMember(memberVO);
+//			log.info("insert: "+memberVO);
 //		}
 //		return null;
 //	}

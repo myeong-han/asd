@@ -169,7 +169,7 @@
 						console.log('mpic: '+typeof(map['mpic']));
 						console.log('latLng: '+typeof(map['latLng']));
 						
-						if (map['mpic'].length == 0){
+						if (map['mpic'] == null || map['mpic'].length == 0){
 							positions.push({
 								content : '<div class="iwin"><span>이미지가 없습니다.</span><hr />거리: '+map['distance']+'00M<hr /><span>'+map['member'].username+'</span></div>',
 								latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
@@ -267,7 +267,7 @@
 								console.log('mpic: '+typeof(map['mpic']));
 								console.log('latLng: '+typeof(map['latLng']));
 								
-								if (map['mpic'].length == 0){
+								if (map['mpic'] == null || map['mpic'].length == 0) {
 									positions.push({
 										content : '<div class="iwin"><span>이미지가 없습니다.</span><hr />거리: '+map['distance']+'00M<hr /><span>'+map['member'].username+'</span></div>',
 										latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)

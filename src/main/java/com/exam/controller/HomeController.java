@@ -34,7 +34,7 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String home(HttpSession session) { 
-		int generateNum = memberService.countAddition()-1;
+		int generateNum = 30; // 전체 조회 : memberService.countAddition()-2;
 		log.info("countAddition: "+generateNum);
 		
 		List<Map<String,Object>>memAddList = new ArrayList<Map<String,Object>>();
@@ -45,7 +45,7 @@ public class HomeController {
 			
 			// 랜덤 Unum 세팅
 			if (memberService.countMemberAll() >= generateNum) {
-				while (unumSet.size()<=generateNum) {
+				while (unumSet.size()<=generateNum+1) {
 					int rand = (int)(Math.random()*memberService.countMemberByClient())+1;
 					rand += 10000; // 10001~회원갯수 중 랜덤
 					
