@@ -58,12 +58,16 @@ public class HomeController {
 			
 		List<Map<String, String>> popupMapList = new ArrayList<Map<String,String>>();
 		List<String> filenameList=attachService.getAttachPics(unum);
-								
+
+		System.out.println(filenameList);
+		
 		for (String filename : filenameList) {
 			Map<String, String> popupMap = new HashMap<String, String>();
 			popupMap.put("src", "/resources/upload/" + filename);
 			popupMapList.add(popupMap);
 		}
+		
+		System.out.println(popupMapList);
 		
 		return popupMapList;
 	}

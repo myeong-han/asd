@@ -35,10 +35,10 @@
 			</c:choose>	
 		</tr>
 		
-		<tr><td colspan="${fn:length(picList)}" class="text-center">
+		<tr><td colspan="${fn:length(picList)}" class="text-center" id="fixtd">
 			<input type="hidden" value="${email}" name="email">
 			<input type="hidden" value="" id="mpic" name="mpic">
-			<button type="submit" class="btn btn-success btn-lg">메인 사진 변경</button>
+			<button type="submit" class="btn btn-success btn-lg onebtn">메인 사진 변경</button>
 		</td></tr>
 		</table>
 

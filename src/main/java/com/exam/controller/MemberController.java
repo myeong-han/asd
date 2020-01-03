@@ -17,21 +17,32 @@ import java.util.UUID;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.exam.domain.AdditionalVO;
@@ -39,8 +50,10 @@ import com.exam.domain.AttachVO;
 import com.exam.domain.LatLngVO;
 import com.exam.domain.MemberVO;
 import com.exam.domain.MessageVO;
+
 import com.exam.service.AttachService;
 import com.exam.service.MemberService;
+
 
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j;
@@ -55,7 +68,10 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private AttachService attachService;
+	
 
+	
+	
 	@GetMapping("join")
 	public void join() {}
 
@@ -151,14 +167,21 @@ public class MemberController {
 		
 		// 로그인 성공
 		MemberVO memberVO = memberService.getMemberByEmail(email);
+		int unum= memberService.getMemberByEmail(email).getUnum();
+		AdditionalVO additionalVO = memberService.getAddtionByUnum(unum);
 		String name = memberVO.getUsername();
 		int num = memberVO.getUnum();
 		session.setAttribute("name", name);
 		session.setAttribute("num", num);
 		session.setAttribute("email", email);
+		session.setAttribute("addInfo", additionalVO);
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Location", "/"); // 리다이렉트 경로 위치 지정
 
+	
+
+		
+		
 		// 리다이렉트일 경우 HttpStatus.Found 지정해야 함
 		return new ResponseEntity<String>(headers, HttpStatus.FOUND);
 		
@@ -175,10 +198,13 @@ public class MemberController {
 		sb.append("alert('로그아웃되었습니다.');");
 		sb.append("location.href = '/';");
 		sb.append("</script>");
-
+	
 		return new ResponseEntity<String>(sb.toString(), headers, HttpStatus.OK);
 
 	}
+	
+
+	
 
 	@GetMapping("joinIdDupCheckJson")
 	@ResponseBody
@@ -189,6 +215,10 @@ public class MemberController {
 	
 	@GetMapping("mypage")
 	public String mypage(String email, Model model) {
+		int myUnum = memberService.getMemberByEmail(email).getUnum();
+		String myPic = memberService.getAddtionByUnum(myUnum).getMpic();
+		
+		model.addAttribute("myPic", myPic);
 		return "member/mypage";
 	}
 	
@@ -380,11 +410,7 @@ public class MemberController {
 		return messageList;
 	}
 	
-	public int checkMessage(String username) {
-		int check=0;
-		return check;
-	}
-	
+		
 	@PostMapping("changeAddPic")
 	public String changeAddPic(String email, String mpic) {
 		int unum=memberService.getMemberByEmail(email).getUnum();
@@ -401,6 +427,44 @@ public class MemberController {
 		
 		
 	}
+	
+	
+	@GetMapping("updateMember")
+	public String updateMember(String email,Model model) {
+		MemberVO memberVO = memberService.getMemberByEmail(email);
+		model.addAttribute("members",memberVO);
+
+		return "member/updateMember";
+	}
+
+	@PostMapping("updateMember")
+	public ResponseEntity<String> updateMember(String email, MemberVO memberVO) {
+
+
+		memberService.updateMember(memberVO);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Type", "text/html; charset=UTF-8");
+		StringBuilder sb = new StringBuilder();
+		sb.append("<script>");
+		sb.append("alert('" + "회원정보가 수정되었습니다." + "');");
+		sb.append("location.href='/member/mypage';");
+		sb.append("</script>");
+
+		return new ResponseEntity<String>(sb.toString(), headers, HttpStatus.OK);
+	}
+	
+	@GetMapping("delete")
+	public ResponseEntity<String> deletes(@ModelAttribute("email")String email,HttpSession session) {
+		
+		memberService.deleteMember(email);
+		session.invalidate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Location","/");
+		return new ResponseEntity<String>(headers, HttpStatus.FOUND); // HttpStatus.FOUND 리다이렉트
+		
+	}
+	
 	
 
 }

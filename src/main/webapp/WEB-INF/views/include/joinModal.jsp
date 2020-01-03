@@ -9,25 +9,28 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="title">JOIN ASD -</h5>
+					<h5 class="modal-title" id="joinLabel">JOIN ASD -</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          				<span aria-hidden="true">&times;</span>
+       				</button>
 				</div>
 
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="email" class="col-form-label">이메일 : </label>
-						<input type="email" class="form-control " id="email" name="email"
+						<input type="email" class="form-control " id="jemail" name="email"
 						placeholder="이메일 주소">
 					</div>
 
 					<div class="form-group">
 						<label for="passwd" class="col-form-label">비밀번호 : </label>
-						<input type="password" class="form-control " id="passwd" name="passwd" 
+						<input type="password" class="form-control " id="jpasswd" name="passwd" 
 						placeholder="패스워드">
 					</div>
 
 					<div class="form-group">
 						<label for="username" class="col-form-label">닉네임 : </label>
-						<input type="text" class="form-control" id="username"
+						<input type="text" class="form-control" id="jusername"
 							name="username" placeholder="닉네임">
 					</div>
 
@@ -48,7 +51,8 @@
 						<div class="row">
 						<div class="col-md-4 col-md-offset-2" > 
 							<input type="text" class="form-control" id="residentId" name="residentIdF" maxlength="6" placeholder="주민번호 앞자리">
-						</div> 
+						</div>
+						
 						<div class="col-md-4"> 
 							<input type="password" class="form-control" name="residentIdB" maxlength="1" placeholder="주민번호  뒷자리 첫번호">
 						</div>

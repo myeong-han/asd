@@ -23,7 +23,7 @@
 <!-- Theme Style -->
 <link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=1">
+<link rel="stylesheet" href="/resources/css/main.css?ver=13">
 
 <!-- Modernizr JS -->
 <script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
@@ -76,7 +76,8 @@
 	</div>
 	</div>
 
-
+	<jsp:include page="../include/joinModal.jsp" />
+	<jsp:include page="../include/loginModal.jsp" />
 
 	<jsp:include page="../include/footer.jsp" />
 

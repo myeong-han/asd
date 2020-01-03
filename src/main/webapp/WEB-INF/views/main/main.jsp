@@ -21,8 +21,7 @@
 <link rel="shortcut icon" href="/resources/images/icon/icon.ico">
 
 <!-- Google Webfonts -->
-<link
-	href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500'
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500'
 	rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
 	rel='stylesheet' type='text/css'>
@@ -44,15 +43,10 @@
 <!-- Theme Style -->
 <link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/css/main.css?ver=10">
+<link rel="stylesheet" href="/resources/css/main.css?ver=15">
 
 <!-- Modernizr JS -->
 <script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
-<!-- FOR IE9 below -->
-<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-
 </head>
 <body>
 
@@ -64,11 +58,9 @@
 		<c:when test="${empty email}">
 
 			<div id="fh5co-main">
-				<div class="container">
-					<div class="row">
-						<div id="fh5co-board" data-columns>
-
-
+			<div class="container">
+			<div class="row">
+			<div id="fh5co-board" data-columns>
 							<div class="item">
 								<div class="animate-box">
 									<a href="/resources/hydrogen/images/img_1.jpg"
@@ -78,8 +70,7 @@
 										alt="Free HTML5 Bootstrap template">
 									</a>
 								</div>
-								<div class="fh5co-desc">Lorem ipsum dolor sit amet,
-									consectetur adipisicing elit. Explicabo, eos?</div>
+								<div class="fh5co-desc">로그인 하셔서 멋진 ASD 회원들을 만나보세요! </div>
 							</div>
 							<div class="item">
 								<div class="animate-box">
@@ -87,8 +78,7 @@
 										class="image-popup fh5co-board-img"> <img
 										src="/resources/hydrogen/images/img_2.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
-									<div class="fh5co-desc">Veniam voluptatum voluptas
-										tempora debitis harum totam vitae hic quos.</div>
+									<div class="fh5co-desc"> 가능성과 기회, 그리고 ASD. </div>
 								</div>
 							</div>
 							<div class="item">
@@ -97,8 +87,7 @@
 										class="image-popup fh5co-board-img"> <img
 										src="/resources/hydrogen/images/img_3.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
-									<div class="fh5co-desc">Optio commodi quod vitae, vel,
-										officiis similique quaerat odit dicta.</div>
+									<div class="fh5co-desc"> 사람의 가치는 타인과의 관계로서만 측정될 수 있다. </div>
 								</div>
 							</div>
 							<div class="item">
@@ -107,8 +96,7 @@
 										class="image-popup fh5co-board-img"> <img
 										src="/resources/hydrogen/images/img_4.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
-									<div class="fh5co-desc">Dolore itaque deserunt sit, at
-										exercitationem delectus, consequuntur quaerat sapiente.</div>
+									<div class="fh5co-desc"> 자신에겐 엄격하고, 남에게는 관대하라 </div>
 								</div>
 							</div>
 							<div class="item">
@@ -117,8 +105,7 @@
 										class="image-popup fh5co-board-img"> <img
 										src="/resources/hydrogen/images/img_5.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
-									<div class="fh5co-desc">Tempora distinctio inventore,
-										nisi excepturi pariatur tempore sit quasi animi.</div>
+									<div class="fh5co-desc"> 사람에게는 사람이 필요하다 </div>
 								</div>
 							</div>
 							<div class="item">
@@ -127,8 +114,7 @@
 										class="image-popup fh5co-board-img"> <img
 										src="/resources/hydrogen/images/img_6.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
-									<div class="fh5co-desc">Sequi, eaque suscipit accusamus.
-										Necessitatibus libero, unde a nesciunt repellendus!</div>
+									<div class="fh5co-desc">모든 만남을 우연으로 보는 사람, 모든 만남을 기적으로 보는 사람.</div>
 								</div>
 							</div>
 							<div class="item">
@@ -137,8 +123,7 @@
 										class="image-popup fh5co-board-img"> <img
 										src="/resources/hydrogen/images/img_7.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
-									<div class="fh5co-desc">Necessitatibus distinctio eos
-										ipsam cum hic temporibus assumenda deleniti, soluta.</div>
+									<div class="fh5co-desc">행운에 다가가기 위해선, 끝까지 해보는 것 밖에 없어</div>
 								</div>
 							</div>
 							<div class="item">
@@ -147,8 +132,7 @@
 										class="image-popup fh5co-board-img"> <img
 										src="/resources/hydrogen/images/img_8.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
-									<div class="fh5co-desc">Debitis voluptatum est error
-										nulla voluptate eum maiores animi quasi?</div>
+									<div class="fh5co-desc">모든 생성은 이유를 가지고, 그렇기에 필연이다.</div>
 								</div>
 							</div>
 							<div class="item">
@@ -157,8 +141,7 @@
 										class="image-popup fh5co-board-img"> <img
 										src="/resources/hydrogen/images/img_9.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
-									<div class="fh5co-desc">Maxime qui eius quisquam quidem
-										quos unde consectetur accusamus adipisci!</div>
+									<div class="fh5co-desc">아무튼 ASD 가입해라</div>
 								</div>
 							</div>
 							<div class="item">
@@ -167,8 +150,7 @@
 										class="image-popup fh5co-board-img"> <img
 										src="/resources/hydrogen/images/img_21.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
-									<div class="fh5co-desc">Deleniti aliquid, accusantium,
-										consectetur harum eligendi vitae quaerat reiciendis sit?</div>
+									<div class="fh5co-desc"> 그러면 사진을 볼수 있을 것이니</div>
 								</div>
 							</div>
 							<div class="item">
@@ -177,16 +159,9 @@
 										class="image-popup fh5co-board-img"> <img
 										src="/resources/hydrogen/images/img_10.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
-									<div class="fh5co-desc">Incidunt, eaque et. Et odio
-										excepturi, eveniet facilis explicabo assumenda.</div>
+									<div class="fh5co-desc"> 그 후의 일은 너의 뇌가 인도하리라</div>
 								</div>
 							</div>
-
-
-
-				
-
-
 			</div>
 			</div>
 			</div>
@@ -239,50 +214,50 @@
 
 														<div class="line2">
 															<c:if test="${ma['member'].gender eq '남' }">
-																<img src="/resources/images/icon/man.png"
+																<img src="/resources/images/icon/30/man.png"
 																	width="30" height="30">
 															</c:if>
 															<c:if test="${ma['member'].gender eq '여' }">
-																<img src="/resources/images/icon/woman.png"
+																<img src="/resources/images/icon/30/woman.png"
 																	width="30" height="30">
 															</c:if>
 
 															<!-- hobby -->
 															<c:if test="${ma['addition'].hobby eq '술' }">
-																<img src="/resources/images/icon/drink.png" width="30"
+																<img src="/resources/images/icon/30/drink.png" width="30"
 																	height="30">
 															</c:if>
 
 															<c:if test="${ma['addition'].hobby eq '음식' }">
-																<img src="/resources/images/icon/food.png" width="30"
+																<img src="/resources/images/icon/30/food.png" width="30"
 																	height="30">
 															</c:if>
 
 															<c:if test="${ma['addition'].hobby eq '운동' }">
-																<img src="/resources/images/icon/health.png" width="30"
+																<img src="/resources/images/icon/30/healty.png" width="30"
 																	height="30">
 															</c:if>
 
 															<c:if test="${ma['addition'].hobby eq '공부' }">
-																<img src="/resources/images/icon/study.png" width="30"
+																<img src="/resources/images/icon/30/study.png" width="30"
 																	height="30">
 															</c:if>
 
 															<c:if test="${ma['addition'].hobby eq '여행' }">
-																<img src="/resources/images/icon/trip.png" width="30"
+																<img src="/resources/images/icon/30/trip.png" width="30"
 																	height="30">
 															</c:if>
-
 															
 															
 															<span data-toggle="modal"
 																data-target="#messageModal"
 																data-whatever="${ma['member'].username}"> 
-																<img
-																src="/resources/images/icon/message2.png" width="30"
-																height="30">
+																<img src="/resources/images/icon/30/mail.png" 
+																	onmouseover="this.src='/resources/images/icon/30/mail2.png';"
+																	onmouseout="this.src='/resources/images/icon/30/mail.png';"
+																width="30" height="30">
 															</span>
-															
+																																											
 														</div>
 														
 														<div class="line3">
@@ -301,11 +276,6 @@
 								</c:forEach>
 							</c:if>
 							
-							
-					
-					
-					
-
 
 
 			</div>
@@ -322,9 +292,6 @@
 	<jsp:include page="../include/receiveModal.jsp" />
 	<jsp:include page="../include/joinModal.jsp" />
 	<jsp:include page="../include/loginModal.jsp" />
-
-
-
 
 
 
@@ -356,32 +323,7 @@
         }
     });
 
-	
-	$('img.cardimage').each(function (index, item) {
-		var $img = $(item);
-		var num = $img.data('num');
-		console.log(num);
 		
-		$.ajax({
-			url: '/popup',
-			data: {unum: num},
-			success: function (data) {
-				console.log(data);
-				
-				$($img).magnificPopup({
-					items: data,
-					gallery: {
-					      enabled: true
-					},
-								
-					type:'image'
-				});	
-				
-			}
-		});
-		
-	});
-	
 	$('#messageModal').on('show.bs.modal', function (event) {
 		  var button = $(event.relatedTarget) // Button that triggered the modal
 		  var recipient = button.data('whatever') 
@@ -406,32 +348,17 @@
 				$('#receiveTable').append("<tr><th>보낸사람</th><th>메시지내용</th><th>보낸시간</th></tr>");
 				
 				$.each(data, function(index, item){
-										
-					/*
-					var t = new Date(item.regtime*1000);
-					console.log(t);
-					
-					var showtime = t.getFullYear();+"/"+
-								   t.getMonth();+1+"/"+
-								   t.getDate();+" "+
-								   t.getHours();+":"+
-								   t.getMinutes();+":"
-								   t.getSeconds();
-								   
-					console.log(showtime);
-					*/
 					
 					var t = new Date(item.regtime);
 					var tt = t.toLocaleString();
-												
-					
+
 					$('#receiveTable').append(
 							"<tr><td>"+item.sendname+
 							"</td><td>"+item.message+
 							"</td><td>"+tt+
 							"</td></tr>"
 					);			
-					
+		
 					
 				});
 			}
@@ -440,9 +367,37 @@
 		
 	});
 	
-	
-	
+	</script>
+	<script>
+	$('img.cardimage').each(function (index, item) {
+		var $img = $(item);
+		var num = $img.data('num');
+		console.log(num);
+						
+		$.ajax({
+			url: '/popup',
+			data: {unum: num},
+			success: function (data) {
+				console.log(data);
+				
+				$($img).magnificPopup({
+					items: data,
+					gallery: {
+					      enabled: true
+					},
+								
+					type:'image'
+				});	
+				
+			}
+		});
+		
+	});
 	
 	</script>
+
+
+		
+	
 </body>
 </html>

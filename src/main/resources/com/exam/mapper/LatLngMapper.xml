@@ -23,4 +23,18 @@
 		SET lat=#{0.0},lng=#{0.0}
 		WHERE unum=#{unum}
 	</update>
+	
+	<select id="getNearLatLng" resultType="LatLngVO">
+	<![CDATA[
+		SELECT *,
+			(6371*acos(cos(radians(#{lat}))*cos(radians(LAT))*cos(radians(LNG)
+			-radians(#{lng}))+sin(radians(#{lat}))*sin(radians(LAT))))
+			AS distance
+		FROM lat_lng
+		WHERE unum <> #{unum}
+		HAVING distance <= #{rng}
+		ORDER BY distance
+		LIMIT 0,100;
+	]]>
+	</select>
 </mapper>

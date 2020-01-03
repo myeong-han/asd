@@ -16,20 +16,31 @@
 			
 			<ul>
 				<li class="active"><a href="/">Home</a></li>
-				<li><a href="/member/join">Join</a></li>
 				<li><a href="/member/login">Login</a></li>
+				<li><a href="/member/join">Join</a></li>
+				
 			</ul>
 
 		</c:when>
 		<c:otherwise>
 			<h1 class="fh5co-logo">
-				<a class="navbar-brand" href="/">${name}의 페이지 </a>
+				<a class="navbar-brand" href="/">${name}의 페이지 </a>		
 			</h1>
-			
-				<img src="/resources/images/icon/message1.png" data-name="${name}" 
-				 data-toggle="modal" data-target="#getMessageModal"
-				 id="messageIcon" width="50" height="50">
-			
+												
+				<img src="/resources/images/icon/50/mail.png"
+					onmouseover="this.src='/resources/images/icon/50/mail2.png';"
+					onmouseout="this.src='/resources/images/icon/50/mail.png';"
+					id="messageIcon" width="50" height="50"
+					data-name="${name}" 
+				 	data-toggle="modal" 
+				 	data-target="#getMessageModal">
+				 
+				 <a href="/chat/list">
+				 <img src="/resources/images/icon/50/chat.png"
+				 	onmouseover="this.src='/resources/images/icon/50/chat2.png';"
+					onmouseout="this.src='/resources/images/icon/50/chat.png';"
+					id="chatIcon" width="50" height="50"></a>
+							
 			<ul>
 				<li class="active"><a href="/">Home</a></li>
 				<li><a href="/member/mypage?email=${email}">My Page</a></li>
@@ -40,13 +51,6 @@
 	</c:choose>
 
 
-	<h3 class="fh5co-lead">Connect with us</h3>
-	<p class="fh5co-social-icons">
-		<a href="#"><i class="icon-twitter"></i></a> 
-		<a href="#"><i class="icon-facebook"></i></a> 
-		<a href="#"><i class="icon-instagram"></i></a>
-		<a href="#"><i class="icon-dribbble"></i></a> 
-		<a href="#"><i class="icon-youtube"></i></a>
-	</p>
+	
 
 </div>

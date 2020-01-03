@@ -26,7 +26,7 @@
 <!-- Theme Style -->
 <link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=1">
+<link rel="stylesheet" href="/resources/css/main.css?ver=13">
 
 <!-- Modernizr JS -->
 <script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
@@ -92,8 +92,8 @@
 				
 			<br>
 		
-				<input type="submit" class="btn btn-success col-md-6 col-md-offset-3" value="가입">
-				<button type="button" class="btn btn-info col-md-6 col-md-offset-3">취소</button>	
+				<input type="submit" class="btn btn-success col-md-6 col-md-offset-3 onebtn" value="가입">
+				<button type="button" class="btn btn-danger col-md-6 col-md-offset-3">취소</button>	
 			
 		</div>
 		</form>
@@ -101,9 +101,10 @@
 	</div>
 	</div>
 
-
-
-
+	
+	
+	<jsp:include page="../include/joinModal.jsp" />
+	<jsp:include page="../include/loginModal.jsp" />
 	<jsp:include page="../include/footer.jsp" />
 
 

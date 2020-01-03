@@ -4,18 +4,17 @@
 
 	<div class="container">
 		<div class="row row-padded">
-			<div class="col-md-12 text-center">
-				<p class="fh5co-social-icons">
-					<a href="#"><i class="icon-twitter"></i></a> <a href="#"><i
-						class="icon-facebook"></i></a> <a href="#"><i
-						class="icon-instagram"></i></a> <a href="#"><i
-						class="icon-dribbble"></i></a> <a href="#"><i class="icon-youtube"></i></a>
-				</p>
+			<div class="text-center">
+				<img src="/resources/images/logo/logof.png">
 				<p>
-					<small>&copy; Hydrogen Free HTML5 Template. All Rights
-						Reserved. <br>Designed by: <a href="http://freehtml5.co/"
-						target="_blank">FREEHTML5.co</a> | Images by: <a
-						href="http://pexels.com" target="_blank">Pexels</a>
+					<small>&copy; ASD PROJECT by TEAM 403-1. <br>
+						 Published by: 
+						<a href="https://github.com/myeong-han" target="_blank">M.H.KIM</a> | 
+						<a href="https://github.com/justpanic" target="_blank">S.Y.KIM</a> | 
+						<a href="https://github.com/JJOOYYONG" target="_blank">J.Y.LIM</a> | 
+						<a href="https://github.com/HyeongSik-Yoon" target="_blank">H.S.YOON</a> | 
+						<a href="https://github.com/kkh4486" target="_blank">H.S.KIM</a> | 
+						<a href="https://github.com/godrlarlxo" target="_blank">G.T.KIM</a> 															
 					</small>
 				</p>
 			</div>

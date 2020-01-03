@@ -42,7 +42,7 @@
 <!-- Theme Style -->
 <link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/main.css?ver=11">
+<link rel="stylesheet" href="/resources/css/main.css?ver=13">
 
 
 
@@ -64,7 +64,7 @@
 	<div id="fh5co-main">
 	<div class="container">
 	<div class="row">
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-8 col-md-offset-2" style="text-align: center">
 	
 		<h2>Personal Bio</h2>		
 					
@@ -83,7 +83,7 @@
 						<div class="table-responsive-md">
 							<table id="uptable" class="table">
 								<tr>
-									<th class="text-center">파일</th>
+									<th class="text-center">새 파일 올리기</th>
 									<td>
 										<div id="file_container">
 											<input class="form-control" type="file" name="files"
@@ -95,7 +95,7 @@
 						</div>
 
 						<br><br>						
-						<input type="submit" value="이미지 업로드" class="btn btn-info col-md-offset-4 col-md-4">
+						<input type="submit" value="이미지 업로드" class="btn btn-success btn-lg onebtn">
 
 					</form>
 					

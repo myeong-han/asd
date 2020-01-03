@@ -18,6 +18,7 @@ import com.exam.mapper.AdditionalMapper;
 import com.exam.mapper.AttachMapper;
 import com.exam.mapper.LatLngMapper;
 import com.exam.mapper.MemberMapper;
+import com.exam.mapper.MessageMapper;
 
 @Service
 @Transactional
@@ -29,6 +30,8 @@ public class MemberService {
 	private AdditionalMapper additionalMapper;
 	@Autowired
 	private LatLngMapper latLngMapper; 
+	@Autowired
+	private MessageMapper messageMapper;
 	
 	// 회원정보 삽입
 	public int insertMember(MemberVO memberVO) {
@@ -139,16 +142,20 @@ public class MemberService {
 		return latLngMapper.updateLatLng(latLngVO);
 	}
 	
-	public int removeLatLng() {
-		return latLngMapper.removeLatLng();
+	public int removeLatLng(int unum) {
+		return latLngMapper.removeLatLng(unum);
 	}
 	
 	public boolean isLatLngExist(int unum) {
 		return 1 == latLngMapper.countLatLngByUnum(unum);
 	}
 	
-	public List<LatLngVO> getLatLngAll() {
-		return latLngMapper.getLatLngAll();
+	public LatLngVO getLatLng(int unum) {
+		return latLngMapper.getLatLng(unum);
+	}
+	
+	public List<LatLngVO> getLatLngAll(int unum) {
+		return latLngMapper.getLatLngAll(unum);
 	}
 	
 	public int insertMessage(MessageVO messageVO) {
@@ -158,6 +165,23 @@ public class MemberService {
 	public List<MessageVO> getMessages(String username) {
 		return memberMapper.getMessagesByName(username);
 	}
+	
+	public List<LatLngVO> getNearLatLng(LatLngVO latLngVO, double rng) {
+		return latLngMapper.getNearLatLng(latLngVO.getLat(),latLngVO.getLng(),latLngVO.getUnum(), rng);
+	}
+	
+	public int deleteLatLngByUnum (int unum) {
+		return latLngMapper.deleteLatLngByUnum(unum);
+	}
+		
+	public boolean isMessageExist() {
+		return 0 < messageMapper.countMessages();
+	}
+	
+	public int getMaxMessage() {
+		return messageMapper.getMaxMessage();
+	}
+	
 	
 	
 }

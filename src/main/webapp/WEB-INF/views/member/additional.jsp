@@ -18,15 +18,6 @@
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
 
-<meta property="og:title" content="" />
-<meta property="og:image" content="" />
-<meta property="og:url" content="" />
-<meta property="og:site_name" content="" />
-<meta property="og:description" content="" />
-<meta name="twitter:title" content="" />
-<meta name="twitter:image" content="" />
-<meta name="twitter:url" content="" />
-<meta name="twitter:card" content="" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="favicon.ico">
@@ -50,7 +41,7 @@
 <!-- Theme Style -->
 <link rel="stylesheet" href="/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=5">
+<link rel="stylesheet" href="/resources/css/main.css?ver=13">
 
 
 
@@ -72,7 +63,7 @@
 	<div id="fh5co-main">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-md-8 col-md-offset-2" style="text-align: center">
 					<h2>Personal Bio</h2>
 
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
@@ -110,7 +101,7 @@
 						</div>
 
 						<br><br>						
-						<input type="submit" value="추가정보 입력/수정" class="btn btn-info col-md-offset-4 col-md-4">
+						<input type="submit" value="추가정보 입력/수정" class="btn btn-success btn-lg onebtn">
 
 					</form>
 

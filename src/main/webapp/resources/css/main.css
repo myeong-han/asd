@@ -6,14 +6,17 @@
 	src: url('/resources/fonts/DXMgoRB-KSCpc-EUC-H.ttf');
 }
 
-body{
-	background-color:rgba(255, 186, 129, 0.15);
-}
+body{background-color:rgba(255, 186, 129, 0.15);}
 
+.someframe{
+	text-align:center;
+	margin:auto;
+	font-family: 'Gaegu', cursive;
+}
 #mainframe{
 	text-align:center;
 	margin:auto;
-	font-family: 'dbx';
+	font-family: 'Gaegu', cursive;
 }
 #card{
 	margin : 0 auto;
@@ -23,7 +26,7 @@ body{
 
 #joinframe{
 	text-align:center;
-	font-family: 'Gaegu', cursive;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 #loginframe{
 	text-align:center;
@@ -35,6 +38,9 @@ body{
 #upimg{margin:auto; text-align:center;}
 #message-text{resize:none;}
 
+legend{border-bottom:0;}
+
+/* 메인 페이지 */
 .comment{padding:10px 0px 0px 0px;}
 .intro{
 	margin:5px; 
@@ -43,16 +49,44 @@ body{
 	font-size: 20px;
 }
 
+/* 버튼 설정 */
+.onebtn{background-color:#F88F10;}
+.onebtn:hover{background-color:#F44848;}
 .closebtn{margin: 0;}
 .btn-sm{margin: 15px 5px;}
-.picList{}
+
+.modal-header .close {margin-top:-20px;}
+
+
+
+
+
+/*chat-room*/
+input#nickname{width:300px; margin:auto;}
+input#room{width:300px; margin:auto;}
+/*chat-websocket*/
+#chatInput{width:700px; margin:auto;}
+
+/*header*/
+#headerID{text-align:center;}
+#mainlogo{
+	position:absolute;
+	top:50%; left:50%;
+	transform:translate(-50%,-50%);
+}
+
+/*attach*/
+#uptable th{border-top:0px;}
+#uptable td{border-top:0px;}
+/*attach-piclist*/
 img#bigimg{max-width:500px;}
+#fixtd{line-height:150px;}
 
+/*mypage*/
+#map{margin: auto;}
+#mapdiv{text-align:center;}
 
-
-
-
-
+/*mypage-map-detail*/
 .map_wrap, .map_wrap * {
 	margin: 0;
 	padding: 0;
