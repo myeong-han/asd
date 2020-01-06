@@ -13,13 +13,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>ASD &mdash; Oppertunity knocks.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-<meta name="keywords"
-	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-<meta name="author" content="FREEHTML5.CO" />
+<meta name="description" content="Free Dating Site by TEAM 403-1" />
+<meta name="keywords" content="friend, dating, contact" />
+<meta name="author" content="TEAM 403-1" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="/resources/images/icon/icon.ico">
 
 <!-- Google Webfonts -->
 <link
@@ -62,7 +61,7 @@
 	<div id="fh5co-main">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-md-8 col-md-offset-2" style="text-align: center">
 					<h2>회원정보 수정하기</h2>
 
 					<div class="fh5co-spacer fh5co-spacer-sm"></div>
@@ -102,17 +101,27 @@
 						</div>
 
 						<br>
-						<br> <input type="submit" value="회원정보 수정하기"
-							class="btn btn-info col-md-offset-4 col-md-3">
+						<br> 
+						
+						<div id="">
+							<input type="submit" value="회원정보 수정하기"
+							class="btn btn-info btn-lg onebtn">
+							<button type="button" class="btn btn-success btn-lg" onclick="location.href='/member/mypage?email=${email}';">돌아가기 </button>
+							
 							<input type ="button" onclick="check();" value ="회원탈퇴"
-							class="btn btn-danger col-me-3">
-
+							class="btn btn-danger btn-lg">
+						</div>
 					</form>
 
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	<jsp:include page="../include/sendModal.jsp" />
+	<jsp:include page="../include/receiveModal.jsp" />
+
+
 
 	<jsp:include page="../include/footer.jsp" />
 

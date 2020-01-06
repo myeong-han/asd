@@ -5,10 +5,10 @@
 	<div class="container">
 		<div class="row">
 			<div id="headerID">
-					<button class="btn btn-success btn-sm pull-left onebtn" id="joinlink"
-					data-toggle="modal" data-target="#joinModal">JOIN </button> 
 				<c:choose>
 				<c:when test="${empty email}" >
+					<button class="btn btn-success btn-sm pull-left onebtn" id="joinlink"
+					data-toggle="modal" data-target="#joinModal">JOIN </button> 
 					<button class="btn btn-success btn-sm pull-left onebtn" id="loginlink"
 					data-toggle="modal" data-target="#loginModal">LOGIN</button>
 				</c:when>

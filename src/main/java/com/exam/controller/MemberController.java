@@ -116,6 +116,11 @@ public class MemberController {
 		
 		int check = memberService.insertMember(memberVO);
 		
+		AdditionalVO additionalVO = new AdditionalVO();
+		additionalVO.setUnum(count);
+		memberService.insertAddition(additionalVO);
+		
+		
 		String message = "";
 
 		if (check != 0) {
@@ -217,7 +222,7 @@ public class MemberController {
 	public String mypage(String email, Model model) {
 		int myUnum = memberService.getMemberByEmail(email).getUnum();
 		String myPic = memberService.getAddtionByUnum(myUnum).getMpic();
-		
+
 		model.addAttribute("myPic", myPic);
 		return "member/mypage";
 	}
@@ -232,16 +237,18 @@ public class MemberController {
 	@PostMapping("additional")
 	public ResponseEntity<String> additional(String email, AdditionalVO additionalVO) {
 		int unum = memberService.getMemberByEmail(email).getUnum();
+		
+		AdditionalVO vo = memberService.getAddtionByUnum(unum);
+		String mpic = vo.getMpic();
+		
 		additionalVO.setUnum(unum);
+		additionalVO.setMpic(mpic);
+		
 		
 		String message = "";
 		int check = 0;
-		if (memberService.isAdded(unum)) {
-			check = memberService.updateAddition(additionalVO);
-		} else {
-			check = memberService.insertAddition(additionalVO);
-		}
-		
+		check = memberService.updateAddition(additionalVO);
+				
 		if (check != 0) {
 			message = "추가정보 수정에 성공했습니다.";
 		} else {
@@ -253,7 +260,7 @@ public class MemberController {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<script>");
 		sb.append("alert('" + message + "');");
-		sb.append("location.href='/member/mypage';");
+		sb.append("location.href='/member/additional?email="+email+"';");
 		sb.append("</script>");
 
 		return new ResponseEntity<String>(sb.toString(), headers, HttpStatus.OK);
@@ -448,7 +455,7 @@ public class MemberController {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<script>");
 		sb.append("alert('" + "회원정보가 수정되었습니다." + "');");
-		sb.append("location.href='/member/mypage';");
+		sb.append("location.href='/member/updateMember?email="+email+"';");
 		sb.append("</script>");
 
 		return new ResponseEntity<String>(sb.toString(), headers, HttpStatus.OK);
@@ -456,7 +463,10 @@ public class MemberController {
 	
 	@GetMapping("delete")
 	public ResponseEntity<String> deletes(@ModelAttribute("email")String email,HttpSession session) {
-		
+		int unum=memberService.getMemberByEmail(email).getUnum();
+		memberService.deleteAddition(unum);
+		memberService.deleteLatLngByUnum(unum);
+		attachService.deleteAttachByUnum(unum);
 		memberService.deleteMember(email);
 		session.invalidate();
 		HttpHeaders headers = new HttpHeaders();

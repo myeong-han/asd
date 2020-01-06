@@ -315,6 +315,36 @@
 	
 	
 	<script>
+	$('img.cardimage').each(function (index, item) {
+		var $img = $(item);
+		var num = $img.data('num');
+		console.log('num값을 받아오는 가? :'+num);
+						
+		$.ajax({
+			url: '/popup',
+			data: {unum: num},
+			dataType:"JSON",
+			success: function (data) {
+				console.log('data는 표시되는가?' + data);
+				console.log('data의 타입은 무엇인가?'+typeof data);
+				
+				$($img).magnificPopup({
+					items: data,
+					gallery: {
+					      enabled: true
+					},
+					type:'image'
+						
+				});	
+				
+			}
+		});
+		
+	});
+	
+	</script>
+	
+	<script>
 	
 	$('#message-text').on('keyup', function() {
 
@@ -368,33 +398,7 @@
 	});
 	
 	</script>
-	<script>
-	$('img.cardimage').each(function (index, item) {
-		var $img = $(item);
-		var num = $img.data('num');
-		console.log(num);
-						
-		$.ajax({
-			url: '/popup',
-			data: {unum: num},
-			success: function (data) {
-				console.log(data);
-				
-				$($img).magnificPopup({
-					items: data,
-					gallery: {
-					      enabled: true
-					},
-								
-					type:'image'
-				});	
-				
-			}
-		});
-		
-	});
 	
-	</script>
 
 
 		

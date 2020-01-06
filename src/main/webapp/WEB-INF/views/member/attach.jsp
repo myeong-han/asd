@@ -13,15 +13,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>ASD &mdash; Oppertunity knocks.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-<meta name="keywords"
-	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-<meta name="author" content="FREEHTML5.CO" />
+<meta name="description" content="Free Dating Site by TEAM 403-1" />
+<meta name="keywords" content="friend, dating, contact" />
+<meta name="author" content="TEAM 403-1" />
 
 
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="/resources/images/icon/icon.ico">
 
 <!-- Google Webfonts -->
 <link
@@ -95,8 +94,8 @@
 						</div>
 
 						<br><br>						
-						<input type="submit" value="이미지 업로드" class="btn btn-success btn-lg onebtn">
-
+						<input type="submit" value="이미지 업로드" class="btn btn-info btn-lg onebtn">
+						<button type="button" class="btn btn-success btn-lg" onclick="location.href='/member/mypage?email=${email}';">돌아가기 </button>
 					</form>
 					
 					
@@ -105,6 +104,10 @@
 	</div>
 	</div>
 	</div>
+	
+	<jsp:include page="../include/sendModal.jsp" />
+	<jsp:include page="../include/receiveModal.jsp" />
+
 
 	<jsp:include page="../include/footer.jsp" />
 

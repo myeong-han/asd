@@ -55,11 +55,12 @@ public class HomeController {
 	@GetMapping("/popup")
 	@ResponseBody
 	public List<Map<String,String>> popup(int unum) {
-			
+		System.out.println("popup 호출 성공");
+		System.out.println("unum값 받아오기 : "+unum);
 		List<Map<String, String>> popupMapList = new ArrayList<Map<String,String>>();
 		List<String> filenameList=attachService.getAttachPics(unum);
 
-		System.out.println(filenameList);
+		System.out.println("파일명 리스트 받아오기 :"+ filenameList);
 		
 		for (String filename : filenameList) {
 			Map<String, String> popupMap = new HashMap<String, String>();
@@ -67,7 +68,7 @@ public class HomeController {
 			popupMapList.add(popupMap);
 		}
 		
-		System.out.println(popupMapList);
+		System.out.println("팝업용 완성된 맵 객체 : "+popupMapList);
 		
 		return popupMapList;
 	}

@@ -19,7 +19,7 @@
 <meta name="author" content="FREEHTML5.CO" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="/resources/images/icon/icon.ico">
 
 <!-- Google Webfonts -->
 <link
@@ -81,6 +81,8 @@
 		</div>
 	</div>
 
+	<jsp:include page="../include/sendModal.jsp" />
+	<jsp:include page="../include/receiveModal.jsp" />
 	<jsp:include page="../include/footer.jsp" />
 
 
