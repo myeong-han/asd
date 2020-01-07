@@ -30,7 +30,6 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-	<!-- post 한글처리 문자 인고딩 필터 설정 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

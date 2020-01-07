@@ -9,14 +9,14 @@
 	</a>
 
 	<c:choose>
-		<c:when test="${empty email}">
+		<c:when test="${empty id }">
 			<h1 class="fh5co-logo">
 				<a class="navbar-brand" href="/">ASD For You</a>
 			</h1>
 			<ul>
 				<li class="active"><a href="/">Home</a></li>
-				<li><a href="/member/join">Join</a></li>
-				<li><a href="/member/login">Login</a></li>
+				<li><a href="/member/join2">Join</a></li>
+				<li><a href="/member/login2">Login</a></li>
 				<li><a href="/about">About </a></li>
 				<li><a href="/pricing">Pricing </a></li>
 				<li><a href="/contact">Contact </a></li>
@@ -31,7 +31,6 @@
 				<li class="active"><a href="/">Home</a></li>
 				<li><a href="/member/mypage?email=${email}">My Page</a></li>
 				<li><a href="/member/logout">Logout</a></li>
-				<li><a href="/main2">Test Page</a></li>
 			</ul>
 
 		</c:otherwise>
