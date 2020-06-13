@@ -40,24 +40,24 @@
 
 
 <!-- Animate.css -->
-<link rel="stylesheet" href="/resources/hydrogen/css/animate.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/animate.css">
 <!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="/resources/hydrogen/css/icomoon.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/icomoon.css">
 <!-- Magnific Popup -->
-<link rel="stylesheet" href="/resources/hydrogen/css/magnific-popup.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/magnific-popup.css">
 <!-- Salvattore -->
-<link rel="stylesheet" href="/resources/hydrogen/css/salvattore.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/salvattore.css">
 <!-- Theme Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/style.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=5">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/main.css?v=5">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/css/main.css">
+<link rel="stylesheet" href="/asd/resources/css/main.css">
 
 
 
 <!-- Modernizr JS -->
-<script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
+<script src="/asd/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -98,25 +98,25 @@
 
 
 	<!-- jQuery -->
-	<script src="/resources/hydrogen/js/jquery.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="/resources/hydrogen/js/jquery.easing.1.3.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="/resources/hydrogen/js/jquery.waypoints.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.waypoints.min.js"></script>
 	<!-- Magnific Popup -->
-	<script src="/resources/hydrogen/js/jquery.magnific-popup.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.magnific-popup.min.js"></script>
 	<!-- Salvattore -->
-	<script src="/resources/hydrogen/js/salvattore.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/salvattore.min.js"></script>
 	<!-- Main JS -->
-	<script src="/resources/hydrogen/js/main.js"></script>
+	<script src="/asd/resources/hydrogen/js/main.js"></script>
 	<!-- kakao JS -->
 	<script type="text/javascript"
 	   src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=4820dee17d15845074a3087a1a27ea0c&libraries=services"></script>
 	
-	<script src="/resources/script/latLng.js"></script>
+	<script src="/asd/resources/script/latLng.js"></script>
 	<script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", getPositions);
 	var email = '${email}';
@@ -147,7 +147,7 @@
 			// 마커를 표시할 위치와 content 객체 배열입니다 
 			var positions = [
 				{
-					content : '<div class="iwin"><img src="/resources/upload/${myPic}" width="100" height="100"><hr /><span>나</span></div>',
+					content : '<div class="iwin"><img src="/asd/resources/upload/${myPic}" width="100" height="100"><hr /><span>나</span></div>',
 					latlng : new kakao.maps.LatLng(latitud, longitude)
 				}
 			];
@@ -176,7 +176,7 @@
 							});
 						} else {
 							positions.push({
-								content : '<div class="iwin"><img src="/resources/upload/'+map['mpic']+'" width="100" height="100"><hr />거리: '+map['distance']+'00M<hr /><span>'+map['member'].username+'</span></div>',
+								content : '<div class="iwin"><img src="/asd/resources/upload/'+map['mpic']+'" width="100" height="100"><hr />거리: '+map['distance']+'00M<hr /><span>'+map['member'].username+'</span></div>',
 								latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
 							});
 						}
@@ -254,7 +254,7 @@
 					
 					positions = [
 						{
-							content : '<div class="iwin"><img src="/resources/upload/${myPic}" width="100" height="100"><hr /><span>나</span></div>',
+							content : '<div class="iwin"><img src="/asd/resources/upload/${myPic}" width="100" height="100"><hr /><span>나</span></div>',
 							latlng : new kakao.maps.LatLng(latitud, longitude)
 						}
 					];
@@ -274,7 +274,7 @@
 									});
 								} else {
 									positions.push({
-										content : '<div class="iwin"><img src="/resources/upload/'+map['mpic']+'" width="100" height="100"><hr />거리: '+map['distance']+'00M<hr /><span>'+map['member'].username+'</span></div>',
+										content : '<div class="iwin"><img src="/asd/resources/upload/'+map['mpic']+'" width="100" height="100"><hr />거리: '+map['distance']+'00M<hr /><span>'+map['member'].username+'</span></div>',
 										latlng : new kakao.maps.LatLng(map['latLng'].lat, map['latLng'].lng)
 									});
 								}

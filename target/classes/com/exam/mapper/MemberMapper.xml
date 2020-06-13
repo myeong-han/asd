@@ -5,19 +5,19 @@
 
 <mapper namespace="com.exam.mapper.MemberMapper">
 	<insert id="insertMember" parameterType="MemberVO">
-		INSERT INTO members (
-			email,unum,passwd,username,local,
-			resident_id,age,gender,recommended,reg_date
+		INSERT INTO MEMBERS (
+			EMAIL,UNUM,PASSWD,USERNAME,LOCAL,
+			RESIDENT_ID,AGE,GENDER,RECOMMENDED,REG_DATE
 		)
 		VALUES (
-			#{email},#{unum},#{passwd},#{username},#{local},
-			CONCAT(#{residentIdF},'-',#{residentIdB}),#{age},#{gender},0,current_date()
+			#{EMAIL},#{UNUM},#{PASSWD},#{USERNAME},#{LOCAL},
+			CONCAT(#{RESIDENTIDF},'-',#{RESIDENTIDB}),#{AGE},#{GENDER},0,CURRENT_DATE()
 		)
 	</insert>
 	
 	<update id="updateMember" parameterType="MemberVO">
-		UPDATE members
-		SET passwd=#{passwd}, username=#{username}, local=#{local}
-		WHERE email=#{email}
+		UPDATE MEMBERS
+		SET PASSWD=#{PASSWD}, USERNAME=#{USERNAME}, LOCAL=#{LOCAL}
+		WHERE EMAIL=#{EMAIL}
 	</update>
 </mapper>

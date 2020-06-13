@@ -14,10 +14,20 @@
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/jspdb?useUnicode=true&amp;characterEncoding=utf8&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=Asia/Seoul"></property>
 	-->
+	
+	<!-- 구 MySql
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<property name="jdbcUrl" value="jdbc:log4jdbc:mysql://localhost:3306/asd?useUnicode=true&amp;characterEncoding=utf8&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=Asia/Seoul"></property>
 		<property name="username" value="jsp_admin"></property>
 		<property name="password" value="jsp_admin"></property>
+	-->
+	
+	<!-- MariaDB -->
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl" value="jdbc:log4jdbc:mysql://ames3111.dlinkddns.com:3306/ASD?useUnicode=true&amp;characterEncoding=utf8&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=Asia/Seoul"></property>
+		<property name="username" value="ames1118"></property>
+		<property name="password" value="ames1118"></property>
+		
 	</bean>
 	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">

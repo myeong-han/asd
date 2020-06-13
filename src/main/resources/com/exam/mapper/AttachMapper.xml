@@ -5,12 +5,12 @@
 
 <mapper namespace="com.exam.mapper.AttachMapper">
 	<insert id="insertAttach" parameterType="AttachVO">
-		INSERT INTO attachs (
-			uuid,filetype,path,name,attach_date,unum
+		INSERT INTO ATTACHS (
+			UUID,FILETYPE,PATH,NAME,ATTACH_DATE,UNUM
 		)
 		VALUES (
-			#{uuid},#{filetype},#{path},#{name},
-			current_date(),#{unum}
+			#{UUID},#{FILETYPE},#{PATH},#{NAME},
+			CURRENT_DATE(),#{UNUM}
 		)
 	</insert>
 </mapper>

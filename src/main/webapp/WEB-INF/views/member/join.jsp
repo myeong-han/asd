@@ -16,20 +16,20 @@
 	
 
 <!-- Animate.css -->
-<link rel="stylesheet" href="/resources/hydrogen/css/animate.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/animate.css">
 <!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="/resources/hydrogen/css/icomoon.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/icomoon.css">
 <!-- Magnific Popup -->
-<link rel="stylesheet" href="/resources/hydrogen/css/magnific-popup.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/magnific-popup.css">
 <!-- Salvattore -->
-<link rel="stylesheet" href="/resources/hydrogen/css/salvattore.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/salvattore.css">
 <!-- Theme Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/style.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=1">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/main.css?v=1">
 
 <!-- Modernizr JS -->
-<script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
+<script src="/asd/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -108,18 +108,18 @@
 
 
 	<!-- jQuery -->
-	<script src="/resources/hydrogen/js/jquery.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="/resources/hydrogen/js/jquery.easing.1.3.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="/resources/hydrogen/js/bootstrap.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="/resources/hydrogen/js/jquery.waypoints.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.waypoints.min.js"></script>
 	<!-- Magnific Popup -->
-	<script src="/resources/hydrogen/js/jquery.magnific-popup.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.magnific-popup.min.js"></script>
 	<!-- Salvattore -->
-	<script src="/resources/hydrogen/js/salvattore.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/salvattore.min.js"></script>
 	<!-- Main JS -->
-	<script src="/resources/hydrogen/js/main.js"></script>
+	<script src="/asd/resources/hydrogen/js/main.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 
 <mapper namespace="com.exam.mapper.MessageMapper">
 	<insert id="insertMessage" parameterType="MessageVO">
-		INSERT INTO messages (message_id, sendname, username, message, write_date, readthis)
-		VALUES ( #{messageId}, #{sendname}, #{username}, #{message}, current_timestamp, "x")
+		INSERT INTO MESSAGES (MESSAGE_ID, SENDNAME, USERNAME, MESSAGE, WRITE_DATE, READTHIS)
+		VALUES ( #{MESSAGEID}, #{SENDNAME}, #{USERNAME}, #{MESSAGE}, CURRENT_TIMESTAMP, "X")
 	</insert>
 </mapper>

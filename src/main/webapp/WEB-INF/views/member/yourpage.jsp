@@ -40,22 +40,22 @@
 
 
 <!-- Animate.css -->
-<link rel="stylesheet" href="/resources/hydrogen/css/animate.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/animate.css">
 <!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="/resources/hydrogen/css/icomoon.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/icomoon.css">
 <!-- Magnific Popup -->
-<link rel="stylesheet" href="/resources/hydrogen/css/magnific-popup.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/magnific-popup.css">
 <!-- Salvattore -->
-<link rel="stylesheet" href="/resources/hydrogen/css/salvattore.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/salvattore.css">
 <!-- Theme Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/style.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/main.css?v=6">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/main.css?v=6">
 
 
 
 <!-- Modernizr JS -->
-<script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
+<script src="/asd/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -79,12 +79,12 @@
 					<div id="upimg">
 						<c:choose>
 							<c:when test="${empty owner.mpic}">
-								<img src="/resources/hydrogen/images/img_29_large.jpg"
+								<img src="/asd/resources/hydrogen/images/img_29_large.jpg"
 									class="img-rounded img-responsive">
 								<p>등록된 이미지가 없습니다.</p>
 							</c:when>
 							<c:otherwise>
-								<img src="/resources/upload/${owner.mpic }" class="img-rounded"
+								<img src="/asd/resources/upload/${owner.mpic }" class="img-rounded"
 									width="300" height="400">
 							</c:otherwise>
 						</c:choose>
@@ -178,9 +178,9 @@
 
 
 	<!-- jQuery -->
-	<script src="/resources/hydrogen/js/jquery.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="/resources/hydrogen/js/jquery.easing.1.3.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script
@@ -188,13 +188,13 @@
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="/resources/hydrogen/js/jquery.waypoints.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.waypoints.min.js"></script>
 	<!-- Magnific Popup -->
-	<script src="/resources/hydrogen/js/jquery.magnific-popup.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.magnific-popup.min.js"></script>
 	<!-- Salvattore -->
-	<script src="/resources/hydrogen/js/salvattore.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/salvattore.min.js"></script>
 	<!-- Main JS -->
-	<script src="/resources/hydrogen/js/main.js"></script>
+	<script src="/asd/resources/hydrogen/js/main.js"></script>
 
 
 <script type="text/javascript"

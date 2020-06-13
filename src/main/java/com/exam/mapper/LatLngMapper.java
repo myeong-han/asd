@@ -17,20 +17,20 @@ public interface LatLngMapper {
 	public int removeLatLng(int unum);
 	
 	public List<LatLngVO> getNearLatLng
-	(	@Param("lat")double lat,
-		@Param("lng")double lng,
-		@Param("unum")double unum,
-		@Param("rng")double rng);
+	(	@Param("LAT")double lat,
+		@Param("LNG")double lng,
+		@Param("UNUM")double unum,
+		@Param("RNG")double rng);
 	
-	@Select("SELECT * FROM lat_lng WHERE unum <> #{unum} AND lat <> 0 AND lng <> 0")
+	@Select("SELECT * FROM LAT_LNG WHERE UNUM <> #{UNUM} AND LAT <> 0 AND LNG <> 0")
 	public List<LatLngVO> getLatLngAll(int unum);
 	
-	@Select("SELECT * FROM lat_lng WHERE unum = #{unum}")
+	@Select("SELECT * FROM LAT_LNG WHERE UNUM = #{UNUM}")
 	public LatLngVO getLatLng(int unum);
 	
-	@Select("SELECT COUNT(*) FROM lat_lng WHERE unum=#{unum}")
+	@Select("SELECT COUNT(*) FROM LAT_LNG WHERE UNUM=#{UNUM}")
 	public int countLatLngByUnum(int unum);
 	
-	@Delete("DELETE FROM lat_lng WHERE unum=#{unum}")
+	@Delete("DELETE FROM LAT_LNG WHERE UNUM=#{UNUM}")
 	public int deleteLatLngByUnum(int unum);
 }

@@ -18,7 +18,7 @@
 <meta name="author" content="TEAM 403-1" />
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="/resources/images/icon/icon.ico">
+<link rel="shortcut icon" href="/asd/resources/images/icon/icon.ico">
 
 <!-- Google Webfonts -->
 <link
@@ -34,20 +34,20 @@
 
 
 <!-- Animate.css -->
-<link rel="stylesheet" href="/resources/hydrogen/css/animate.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/animate.css">
 <!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="/resources/hydrogen/css/icomoon.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/icomoon.css">
 <!-- Magnific Popup -->
-<link rel="stylesheet" href="/resources/hydrogen/css/magnific-popup.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/magnific-popup.css">
 <!-- Salvattore -->
-<link rel="stylesheet" href="/resources/hydrogen/css/salvattore.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/salvattore.css">
 <!-- Theme Style -->
-<link rel="stylesheet" href="/resources/hydrogen/css/style.css">
+<link rel="stylesheet" href="/asd/resources/hydrogen/css/style.css">
 <!-- Main Style -->
-<link rel="stylesheet" href="/resources/css/main.css?ver=10">
+<link rel="stylesheet" href="/asd/resources/css/main.css?ver=10">
 
 <!-- Modernizr JS -->
-<script src="/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
+<script src="/asd/resources/hydrogen/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -73,10 +73,10 @@
 
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_1.jpg"
+									<a href="/asd/resources/hydrogen/images/img_1.jpg"
 										class="image-popup fh5co-board-img"
 										title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
-										<img src="/resources/hydrogen/images/img_1.jpg"
+										<img src="/asd/resources/hydrogen/images/img_1.jpg"
 										alt="Free HTML5 Bootstrap template">
 									</a>
 								</div>
@@ -85,9 +85,9 @@
 							</div>
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_2.jpg"
+									<a href="/asd/resources/hydrogen/images/img_2.jpg"
 										class="image-popup fh5co-board-img"> <img
-										src="/resources/hydrogen/images/img_2.jpg"
+										src="/asd/resources/hydrogen/images/img_2.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
 									<div class="fh5co-desc">Veniam voluptatum voluptas
 										tempora debitis harum totam vitae hic quos.</div>
@@ -95,9 +95,9 @@
 							</div>
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_3.jpg"
+									<a href="/asd/resources/hydrogen/images/img_3.jpg"
 										class="image-popup fh5co-board-img"> <img
-										src="/resources/hydrogen/images/img_3.jpg"
+										src="/asd/resources/hydrogen/images/img_3.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
 									<div class="fh5co-desc">Optio commodi quod vitae, vel,
 										officiis similique quaerat odit dicta.</div>
@@ -105,9 +105,9 @@
 							</div>
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_4.jpg"
+									<a href="/asd/resources/hydrogen/images/img_4.jpg"
 										class="image-popup fh5co-board-img"> <img
-										src="/resources/hydrogen/images/img_4.jpg"
+										src="/asd/resources/hydrogen/images/img_4.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
 									<div class="fh5co-desc">Dolore itaque deserunt sit, at
 										exercitationem delectus, consequuntur quaerat sapiente.</div>
@@ -115,9 +115,9 @@
 							</div>
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_5.jpg"
+									<a href="/asd/resources/hydrogen/images/img_5.jpg"
 										class="image-popup fh5co-board-img"> <img
-										src="/resources/hydrogen/images/img_5.jpg"
+										src="/asd/resources/hydrogen/images/img_5.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
 									<div class="fh5co-desc">Tempora distinctio inventore,
 										nisi excepturi pariatur tempore sit quasi animi.</div>
@@ -125,9 +125,9 @@
 							</div>
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_6.jpg"
+									<a href="/asd/resources/hydrogen/images/img_6.jpg"
 										class="image-popup fh5co-board-img"> <img
-										src="/resources/hydrogen/images/img_6.jpg"
+										src="/asd/resources/hydrogen/images/img_6.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
 									<div class="fh5co-desc">Sequi, eaque suscipit accusamus.
 										Necessitatibus libero, unde a nesciunt repellendus!</div>
@@ -135,9 +135,9 @@
 							</div>
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_7.jpg"
+									<a href="/asd/resources/hydrogen/images/img_7.jpg"
 										class="image-popup fh5co-board-img"> <img
-										src="/resources/hydrogen/images/img_7.jpg"
+										src="/asd/resources/hydrogen/images/img_7.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
 									<div class="fh5co-desc">Necessitatibus distinctio eos
 										ipsam cum hic temporibus assumenda deleniti, soluta.</div>
@@ -145,9 +145,9 @@
 							</div>
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_8.jpg"
+									<a href="/asd/resources/hydrogen/images/img_8.jpg"
 										class="image-popup fh5co-board-img"> <img
-										src="/resources/hydrogen/images/img_8.jpg"
+										src="/asd/resources/hydrogen/images/img_8.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
 									<div class="fh5co-desc">Debitis voluptatum est error
 										nulla voluptate eum maiores animi quasi?</div>
@@ -155,9 +155,9 @@
 							</div>
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_9.jpg"
+									<a href="/asd/resources/hydrogen/images/img_9.jpg"
 										class="image-popup fh5co-board-img"> <img
-										src="/resources/hydrogen/images/img_9.jpg"
+										src="/asd/resources/hydrogen/images/img_9.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
 									<div class="fh5co-desc">Maxime qui eius quisquam quidem
 										quos unde consectetur accusamus adipisci!</div>
@@ -165,9 +165,9 @@
 							</div>
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_21.jpg"
+									<a href="/asd/resources/hydrogen/images/img_21.jpg"
 										class="image-popup fh5co-board-img"> <img
-										src="/resources/hydrogen/images/img_21.jpg"
+										src="/asd/resources/hydrogen/images/img_21.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
 									<div class="fh5co-desc">Deleniti aliquid, accusantium,
 										consectetur harum eligendi vitae quaerat reiciendis sit?</div>
@@ -175,9 +175,9 @@
 							</div>
 							<div class="item">
 								<div class="animate-box">
-									<a href="/resources/hydrogen/images/img_10.jpg"
+									<a href="/asd/resources/hydrogen/images/img_10.jpg"
 										class="image-popup fh5co-board-img"> <img
-										src="/resources/hydrogen/images/img_10.jpg"
+										src="/asd/resources/hydrogen/images/img_10.jpg"
 										alt="Free HTML5 Bootstrap template"></a>
 									<div class="fh5co-desc">Incidunt, eaque et. Et odio
 										excepturi, eveniet facilis explicabo assumenda.</div>
@@ -216,7 +216,7 @@
 											<c:choose>
 												<c:when test="${not empty ma['addition'].mpic }"> <%-- 메인이미지 있는 사람 --%>
 													<img class="cardimage" data-num="${ma['member'].unum }" 
-													src="/resources/upload/${ma['addition'].mpic }">
+													src="/asd/resources/upload/${ma['addition'].mpic }">
 												</c:when>
 											</c:choose>
 
@@ -231,37 +231,37 @@
 
 												<div class="line2">
 													<c:if test="${ma['member'].gender eq '남' }">
-														<img src="/resources/images/icon/man.png"
+														<img src="/asd/resources/images/icon/man.png"
 															width="30" height="30">
 													</c:if>
 													<c:if test="${ma['member'].gender eq '여' }">
-														<img src="/resources/images/icon/woman.png"
+														<img src="/asd/resources/images/icon/woman.png"
 															width="30" height="30">
 													</c:if>
 
 													<!-- hobby -->
 													<c:if test="${ma['addition'].hobby eq '술' }">
-														<img src="/resources/images/icon/drink.png" width="30"
+														<img src="/asd/resources/images/icon/drink.png" width="30"
 															height="30">
 													</c:if>
 
 													<c:if test="${ma['addition'].hobby eq '음식' }">
-														<img src="/resources/images/icon/food.png" width="30"
+														<img src="/asd/resources/images/icon/food.png" width="30"
 															height="30">
 													</c:if>
 
 													<c:if test="${ma['addition'].hobby eq '운동' }">
-														<img src="/resources/images/icon/health.png" width="30"
+														<img src="/asd/resources/images/icon/health.png" width="30"
 															height="30">
 													</c:if>
 
 													<c:if test="${ma['addition'].hobby eq '공부' }">
-														<img src="/resources/images/icon/study.png" width="30"
+														<img src="/asd/resources/images/icon/study.png" width="30"
 															height="30">
 													</c:if>
 
 													<c:if test="${ma['addition'].hobby eq '여행' }">
-														<img src="/resources/images/icon/trip.png" width="30"
+														<img src="/asd/resources/images/icon/trip.png" width="30"
 															height="30">
 													</c:if>
 													
@@ -269,13 +269,13 @@
 													<span data-toggle="modal"
 														data-target="#messageModal"
 														data-whatever="${ma['member'].username}"> 
-														<img src="/resources/images/icon/t_mail.png" class="mail-btn" width="30" height="30">
+														<img src="/asd/resources/images/icon/t_mail.png" class="mail-btn" width="30" height="30">
 													</span>
 													
 													<span data-toggle="modal"
 														data-target="#chatModal"
 														data-username="${ma['member'].username}">
-														<img src="/resources/images/icon/t_chat.png" class="chat-btn" width="30" height="30">
+														<img src="/asd/resources/images/icon/t_chat.png" class="chat-btn" width="30" height="30">
 													</span>
 													
 													
@@ -323,24 +323,24 @@
 	<jsp:include page="../include/footer.jsp" />
 
 	<!-- jQuery -->
-	<script src="/resources/hydrogen/js/jquery.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="/resources/hydrogen/js/jquery.easing.1.3.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="/resources/hydrogen/js/bootstrap.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="/resources/hydrogen/js/jquery.waypoints.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.waypoints.min.js"></script>
 	<!-- Magnific Popup -->
-	<script src="/resources/hydrogen/js/jquery.magnific-popup.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/jquery.magnific-popup.min.js"></script>
 	<!-- Salvattore -->
-	<script src="/resources/hydrogen/js/salvattore.min.js"></script>
+	<script src="/asd/resources/hydrogen/js/salvattore.min.js"></script>
 	<!-- Main JS -->
-	<script src="/resources/hydrogen/js/main.js"></script>
+	<script src="/asd/resources/hydrogen/js/main.js"></script>
 	
 	
 	<script>
 	// 이미지 마우스 오버&아웃 이벤트
-	var imgloc = '/resources/images/icon/';
+	var imgloc = '/asd/resources/images/icon/';
 	
 	// 메일버튼 :
 	$('.mail-btn').mouseover(function () {

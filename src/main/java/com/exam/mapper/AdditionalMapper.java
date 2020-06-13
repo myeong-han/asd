@@ -19,18 +19,18 @@ public interface AdditionalMapper {
 	// 회원 대표사진 업데이트
 	public int updateAdditionPic(AdditionalVO additionalVO);
 	
-	@Select("SELECT * FROM additional WHERE unum=#{unum}")
+	@Select("SELECT * FROM ADDITIONAL WHERE UNUM=#{UNUM}")
 	public AdditionalVO getAddition(int unum);
 	
-	@Select("SELECT * FROM additional")
+	@Select("SELECT * FROM ADDITIONAL")
 	public List<AdditionalVO> getAdditionAll();
 	
-	@Select("SELECT COUNT(*) FROM additional")
+	@Select("SELECT COUNT(*) FROM ADDITIONAL")
 	public int countAddition();
 	
-	@Select("SELECT COUNT(*) FROM additional WHERE unum=#{unum}")
+	@Select("SELECT COUNT(*) FROM ADDITIONAL WHERE UNUM=#{UNUM}")
 	public int countAdditionByUnum(int unum);
 	
-	@Delete("DELETE FROM addtional WHERE unum=#{unum}")
+	@Delete("DELETE FROM ADDTIONAL WHERE UNUM=#{UNUM}")
 	public void deleteAddition(int unum);
 }

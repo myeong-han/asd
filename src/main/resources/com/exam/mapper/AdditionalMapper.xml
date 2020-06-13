@@ -5,24 +5,24 @@
 
 <mapper namespace="com.exam.mapper.AdditionalMapper">
 	<insert id="insertAddition" parameterType="AdditionalVO">
-		INSERT INTO additional (
-			unum,mobile,hobby,intro,mpic
+		INSERT INTO ADDITIONAL (
+			UNUM,MOBILE,HOBBY,INTRO,MPIC
 		)
 		VALUES (
-			#{unum},#{mobile},#{hobby},#{intro},#{mpic}
+			#{UNUM},#{MOBILE},#{HOBBY},#{INTRO},#{MPIC}
 		)
 	</insert>
 	
 	<update id="updateAddition" parameterType="AdditionalVO">
-		UPDATE additional
-		SET mobile=#{mobile},hobby=#{hobby},intro=#{intro},mpic=#{mpic}
-		WHERE unum=#{unum}
+		UPDATE ADDITIONAL
+		SET MOBILE=#{MOBILE},HOBBY=#{HOBBY},INTRO=#{INTRO},MPIC=#{MPIC}
+		WHERE UNUM=#{UNUM}
 	</update>
 	
 	<update id="updateAdditionPic" parameterType="AdditionalVO">
-		UPDATE additional
-		SET mpic=#{mpic}
-		WHERE unum=#{unum}
+		UPDATE ADDITIONAL
+		SET MPIC=#{MPIC}
+		WHERE UNUM=#{UNUM}
 	</update>
 	
 	

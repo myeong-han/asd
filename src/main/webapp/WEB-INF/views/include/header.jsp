@@ -22,7 +22,7 @@
 				<i class="icon-menu"></i></a>
 				</c:when> 
 				</c:choose>
-				<a class="navbar-brand" href="/">A SHIP DA</a>
+				<a class="navbar-brand" href="/asd">A SHIP DA</a>
 			</div>
 		</div>
 	</div>

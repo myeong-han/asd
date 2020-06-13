@@ -17,30 +17,30 @@ public interface MemberMapper {
 	public void updateMember(MemberVO memberVO);
 	
 	// 입력된 이메일에 해당하는 회원정보 리턴
-	@Select("SELECT * FROM members WHERE email=#{email}")
+	@Select("SELECT * FROM MEMBERS WHERE EMAIL=#{EMAIL}")
 	public MemberVO getMemberByEmail(String email);
 	
-	@Select("SELECT * FROM members WHERE unum=#{unum}")
+	@Select("SELECT * FROM MEMBERS WHERE UNUM=#{UNUM}")
 	public MemberVO getMemberByUnum(int unum);
 	
 	// 가입날짜순으로 모든 회원 내림차순 목록 리턴
-	@Select("SELECT * FROM members ORDER BY reg_date DESC")
+	@Select("SELECT * FROM MEMBERS ORDER BY REG_DATE DESC")
 	public List<MemberVO> getMemberAll();
 	
 	// 해당 계정 존재여부 정수 리턴(존재하면 1, 아니면 0 리턴)
-	@Select("SELECT COUNT(*) FROM members WHERE email=#{email}")
+	@Select("SELECT COUNT(*) FROM MEMBERS WHERE EMAIL=#{EMAIL}")
 	public int countMemberByEmail(String email);
 	
 	// 전체 회원수 조회
-	@Select("Select count(*) FROM members")
+	@Select("SELECT COUNT(*) FROM MEMBERS")
 	public int countMemberAll();
 	
 	// 10001번 이상 회원수 조회
-	@Select("Select count(*) FROM members WHERE unum>10000")
+	@Select("SELECT COUNT(*) FROM MEMBERS WHERE UNUM>10000")
 	public int countMemberByClient();
 	
 	// 입력된 이메일에 해당하는 회원 삭제
-	@Delete("DELETE FROM members WHERE email = #{email}")
+	@Delete("DELETE FROM MEMBERS WHERE EMAIL = #{EMAIL}")
 	public void deleteMemberByEmail(String email);
 	
 }
